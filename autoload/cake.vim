@@ -1,5 +1,5 @@
 let g:cake#palette           = {}
-let g:cake#palette.fg        = ['#07060B', 253]
+let g:cake#palette.fg        = ['#FFFFFF', 253]
 
 let g:cake#palette.bglighter = ['#FFFFFF', 238]
 let g:cake#palette.bglight   = ['#FFFFFF', 237]
