@@ -1,4 +1,4 @@
-if marble#should_abort()
+if cake#should_abort()
   finish
 endif
 

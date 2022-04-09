@@ -1,6 +1,6 @@
 func! s:clr(fg, bg, ...)
-  let l:fg = g:marble#palette[a:fg]
-  let l:bg = g:marble#palette[a:bg]
+  let l:fg = g:cake#palette[a:fg]
+  let l:bg = g:cake#palette[a:bg]
   return [ l:fg[0], l:bg[0], l:fg[1], l:bg[1] ] +
        \ filter(copy(a:000), 'type(v:val) == 1 && len(v:val) > 0')
 endfunc
@@ -13,7 +13,7 @@ func! s:color_map(a, b, c, ...)
   endif
 endfunc
 
-let g:airline#themes#marble#palette = {
+let g:airline#themes#cake#palette = {
 \   'normal': s:color_map(
 \       ['bg', 'purple'],
 \       ['fg', 'comment'],
@@ -106,7 +106,7 @@ let g:airline#themes#marble#palette = {
 \}
 
 if get(g:, 'airline#extensions#tabline#enabled', 0)
-  let g:airline#themes#marble#palette.tabline = {
+  let g:airline#themes#cake#palette.tabline = {
         \ 'airline_tabfill': s:clr('bg', 'bglight'),
         \
         \ 'airline_tab': s:clr('comment', 'bg'),
@@ -119,7 +119,7 @@ if get(g:, 'airline#extensions#tabline#enabled', 0)
         \}
 endif
 if exists('g:loaded_ctrlp')
-  let g:airline#themes#marble#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+  let g:airline#themes#cake#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
         \ s:clr('fg', 'selection'),
         \ s:clr('fg', 'comment'),
         \ s:clr('fg', 'purple'),

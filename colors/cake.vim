@@ -7,81 +7,81 @@ if v:version > 580
   endif
 endif
 
-let g:colors_name = 'marble'
+let g:colors_name = 'cake'
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 256
   finish
 endif
 
-let s:fg        = g:marble#palette.fg
+let s:fg        = g:cake#palette.fg
 
-let s:bglighter = g:marble#palette.bglighter
-let s:bglight   = g:marble#palette.bglight
-let s:bg        = g:marble#palette.bg
-let s:bgdark    = g:marble#palette.bgdark
-let s:bgdarker  = g:marble#palette.bgdarker
+let s:bglighter = g:cake#palette.bglighter
+let s:bglight   = g:cake#palette.bglight
+let s:bg        = g:cake#palette.bg
+let s:bgdark    = g:cake#palette.bgdark
+let s:bgdarker  = g:cake#palette.bgdarker
 
-let s:comment   = g:marble#palette.comment
-let s:selection = g:marble#palette.selection
-let s:subtle    = g:marble#palette.subtle
+let s:comment   = g:cake#palette.comment
+let s:selection = g:cake#palette.selection
+let s:subtle    = g:cake#palette.subtle
 
-let s:cyan      = g:marble#palette.cyan
-let s:green     = g:marble#palette.green
-let s:orange    = g:marble#palette.orange
-let s:pink      = g:marble#palette.pink
-let s:purple    = g:marble#palette.purple
-let s:red       = g:marble#palette.red
-let s:yellow    = g:marble#palette.yellow
+let s:cyan      = g:cake#palette.cyan
+let s:green     = g:cake#palette.green
+let s:orange    = g:cake#palette.orange
+let s:pink      = g:cake#palette.pink
+let s:purple    = g:cake#palette.purple
+let s:red       = g:cake#palette.red
+let s:yellow    = g:cake#palette.yellow
 
 let s:none      = ['NONE', 'NONE']
 
 if has('nvim')
   for s:i in range(16)
-    let g:terminal_color_{s:i} = g:marble#palette['color_' . s:i]
+    let g:terminal_color_{s:i} = g:cake#palette['color_' . s:i]
   endfor
 endif
 
 if has('terminal')
   let g:terminal_ansi_colors = []
   for s:i in range(16)
-    call add(g:terminal_ansi_colors, g:marble#palette['color_' . s:i])
+    call add(g:terminal_ansi_colors, g:cake#palette['color_' . s:i])
   endfor
 endif
 
-if !exists('g:marble_bold')
-  let g:marble_bold = 1
+if !exists('g:cake_bold')
+  let g:cake_bold = 1
 endif
 
-if !exists('g:marble_italic')
-  let g:marble_italic = 1
+if !exists('g:cake_italic')
+  let g:cake_italic = 1
 endif
 
-if !exists('g:marble_underline')
-  let g:marble_underline = 1
+if !exists('g:cake_underline')
+  let g:cake_underline = 1
 endif
 
-if !exists('g:marble_undercurl')
-  let g:marble_undercurl = g:marble_underline
+if !exists('g:cake_undercurl')
+  let g:cake_undercurl = g:cake_underline
 endif
 
-if !exists('g:marble_full_special_attrs_support')
-  let g:marble_full_special_attrs_support = has('gui_running')
+if !exists('g:cake_full_special_attrs_support')
+  let g:cake_full_special_attrs_support = has('gui_running')
 endif
 
-if !exists('g:marble_inverse')
-  let g:marble_inverse = 1
+if !exists('g:cake_inverse')
+  let g:cake_inverse = 1
 endif
 
-if !exists('g:marble_colorterm')
-  let g:marble_colorterm = 1
+if !exists('g:cake_colorterm')
+  let g:cake_colorterm = 1
 endif
 
 let s:attrs = {
-      \ 'bold': g:marble_bold == 1 ? 'bold' : 0,
-      \ 'italic': g:marble_italic == 1 ? 'italic' : 0,
-      \ 'underline': g:marble_underline == 1 ? 'underline' : 0,
-      \ 'undercurl': g:marble_undercurl == 1 ? 'undercurl' : 0,
-      \ 'inverse': g:marble_inverse == 1 ? 'inverse' : 0,
+      \ 'bold': g:cake_bold == 1 ? 'bold' : 0,
+      \ 'italic': g:cake_italic == 1 ? 'italic' : 0,
+      \ 'underline': g:cake_underline == 1 ? 'underline' : 0,
+      \ 'undercurl': g:cake_undercurl == 1 ? 'undercurl' : 0,
+      \ 'inverse': g:cake_inverse == 1 ? 'inverse' : 0,
       \}
 
 function! s:h(scope, fg, ...) " bg, attr_list, special
@@ -92,7 +92,7 @@ function! s:h(scope, fg, ...) " bg, attr_list, special
   let l:attrs = len(l:attr_list) > 0 ? join(l:attr_list, ',') : 'NONE'
 
   let l:special = get(a:, 3, ['NONE', 'NONE'])
-  if l:special[0] !=# 'NONE' && l:fg[0] ==# 'NONE' && !g:marble_full_special_attrs_support
+  if l:special[0] !=# 'NONE' && l:fg[0] ==# 'NONE' && !g:cake_full_special_attrs_support
     let l:fg[0] = l:special[0]
     let l:fg[1] = l:special[1]
   endif
@@ -170,7 +170,7 @@ call s:h('MarbleDiffDelete', s:red, s:bgdark)
 
 set background=dark
 
-call s:h('Normal', s:fg, g:marble_colorterm || has('gui_running') ? s:bg : s:none )
+call s:h('Normal', s:fg, g:cake_colorterm || has('gui_running') ? s:bg : s:none )
 call s:h('StatusLine', s:none, s:bglighter, [s:attrs.bold])
 call s:h('StatusLineNC', s:none, s:bglight)
 call s:h('StatusLineTerm', s:none, s:bglighter, [s:attrs.bold])
