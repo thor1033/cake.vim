@@ -1,4 +1,4 @@
-let s:overrides = get(g:, "palenight_color_overrides", {})
+let s:overrides = get(g:, "cake_color_overrides", {})
 
 " white_mask_<number>: Color of a white mask overlayed on top of
 " `s:colors.black`, where `number * 12` is the alpha value of the white mask
@@ -29,6 +29,6 @@ let s:colors = {
       \ "white_mask_11": get(s:overrides, "white_mask_11", { "gui": "#989aa2", "cterm": "238", "cterm16": "15" })
       \}
 
-function! palenight#GetColors()
+function! cake#GetColors()
   return s:colors
 endfunction
