@@ -69,7 +69,7 @@ let g:airline#themes#cake#palette = {
 \       },
 \     ),
 \   'visual': s:color_map(
-\       ['bg', 'yellow'],
+\       ['bg', 'blue'],
 \       ['fg', 'comment'],
 \       ['fg', 'selection'],
 \       {
@@ -78,7 +78,7 @@ let g:airline#themes#cake#palette = {
 \       },
 \     ),
 \   'visual_modified': s:color_map(
-\       ['bg', 'yellow'],
+\       ['bg', 'blue'],
 \       ['fg', 'comment'],
 \       ['fg', 'bgdark'],
 \       {
