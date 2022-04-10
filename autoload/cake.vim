@@ -1,51 +1,34 @@
-let g:cake#palette           = {}
-let g:cake#palette.fg        = ['#FFFFFF', 253]
+let s:overrides = get(g:, "palenight_color_overrides", {})
 
-let g:cake#palette.bglighter = ['#FFFFFF', 238]
-let g:cake#palette.bglight   = ['#FFFFFF', 237]
-let g:cake#palette.bg        = ['#1D1C1A', 236]
-let g:cake#palette.bgdark    = ['#1D1C1A', 235]
-let g:cake#palette.bgdarker  = ['#1D1C1A', 234]
+" white_mask_<number>: Color of a white mask overlayed on top of
+" `s:colors.black`, where `number * 12` is the alpha value of the white mask
 
-let g:cake#palette.comment   = ['#8E8E8D',  61]
-let g:cake#palette.selection = ['#565554', 239]
-let g:cake#palette.subtle    = ['#3A3937', 238]
+let s:colors = {
+      \ "red": get(s:overrides, "red", { "gui": "#E44F5C", "cterm": "204", "cterm16": "1" }),
+      \ "light_red": get(s:overrides, "light_red", { "gui": "#F0B6D5", "cterm": "204", "cterm16": "1" }),
+      \ "dark_red": get(s:overrides, "dark_red", { "gui": "#E56E90", "cterm": "196", "cterm16": "9" }),
+      \ "green": get(s:overrides, "green", { "gui": "#BEE5B0", "cterm": "114", "cterm16": "2" }),
+      \ "yellow": get(s:overrides, "yellow", { "gui": "#F8F1AE", "cterm": "180", "cterm16": "3" }),
+      \ "dark_yellow": get(s:overrides, "dark_yellow", { "gui": "#FBBB62", "cterm": "173", "cterm16": "11" }),
+      \ "blue": get(s:overrides, "blue", { "gui": "#9BBEED", "cterm": "39", "cterm16": "4" }),
+      \ "purple": get(s:overrides, "purple", { "gui": "#9A7FAE", "cterm": "170", "cterm16": "5" }),
+      \ "blue_purple": get(s:overrides, "blue_purple", { "gui": "#807DDB", "cterm": "39", "cterm16": "4"}),
+      \ "cyan": get(s:overrides, "cyan", { "gui": "#A4D8D8", "cterm": "38", "cterm16": "6" }),
+      \ "white": get(s:overrides, "white", { "gui": "#FAF8F6", "cterm": "145", "cterm16": "7" }),
+      \ "black": get(s:overrides, "black", { "gui": "#1D1C1A", "cterm": "235", "cterm16": "0" }),
+      \ "visual_black": get(s:overrides, "visual_black", { "gui": "NONE", "cterm": "NONE", "cterm16": "0" }),
+      \ "comment_grey": get(s:overrides, "comment_grey", { "gui": "#697098", "cterm": "59", "cterm16": "15" }),
+      \ "gutter_fg_grey": get(s:overrides, "gutter_fg_grey", { "gui": "#4B5263", "cterm": "238", "cterm16": "15" }),
+      \ "cursor_grey": get(s:overrides, "cursor_grey", { "gui": "#2C323C", "cterm": "236", "cterm16": "8" }),
+      \ "visual_grey": get(s:overrides, "visual_grey", { "gui": "#4C4942", "cterm": "237", "cterm16": "15" }),
+      \ "menu_grey": get(s:overrides, "menu_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "8" }),
+      \ "special_grey": get(s:overrides, "special_grey", { "gui": "#3B4048", "cterm": "238", "cterm16": "15" }),
+      \ "vertsplit": get(s:overrides, "vertsplit", { "gui": "#181A1F", "cterm": "59", "cterm16": "15" }),
+      \ "white_mask_1": get(s:overrides, "white_mask_1", { "gui": "#333747", "cterm": "237", "cterm16": "15" }),
+      \ "white_mask_3": get(s:overrides, "white_mask_3", { "gui": "#474b59", "cterm": "238", "cterm16": "15" }),
+      \ "white_mask_11": get(s:overrides, "white_mask_11", { "gui": "#989aa2", "cterm": "238", "cterm16": "15" })
+      \}
 
-let g:cake#palette.cyan      = ['#A4D8D8', 117]
-let g:cake#palette.green     = ['#BEE5B0',  84]
-let g:cake#palette.orange    = ['#FBBB62', 215]
-let g:cake#palette.pink      = ['#F0B6D5', 212]
-let g:cake#palette.purple    = ['#9A7FAE', 141]
-let g:cake#palette.red       = ['#E56E90', 203]
-let g:cake#palette.yellow    = ['#F8F1AE', 228]
-
-"
-" ANSI
-"
-let g:cake#palette.color_0  = '#21222C'
-let g:cake#palette.color_1  = '#FBBB62'
-let g:cake#palette.color_2  = '#BEE5B0'
-let g:cake#palette.color_3  = '#F8F1AE'
-let g:cake#palette.color_4  = '#9A7FAE'
-let g:cake#palette.color_5  = '#F0B6D5'
-let g:cake#palette.color_6  = '#A4D8D8'
-let g:cake#palette.color_7  = '#07060B'
-let g:cake#palette.color_8  = '#9A7FAE'
-let g:cake#palette.color_9  = '#FF6E6E'
-let g:cake#palette.color_10 = '#69FF94'
-let g:cake#palette.color_11 = '#FFFFA5'
-let g:cake#palette.color_12 = '#D6ACFF'
-let g:cake#palette.color_13 = '#FF92DF'
-let g:cake#palette.color_14 = '#A4FFFF'
-let g:cake#palette.color_15 = '#07060B'
-
-" Helper function that takes a variadic list of filetypes as args and returns
-" whether or not the execution of the ftplugin should be aborted.
-func! cake#should_abort(...)
-    if ! exists('g:colors_name') || g:colors_name !=# 'cake'
-        return 1
-    elseif a:0 > 0 && (! exists('b:current_syntax') || index(a:000, b:current_syntax) == -1)
-        return 1
-    endif
-    return 0
+function! palenight#GetColors()
+  return s:colors
 endfunction
