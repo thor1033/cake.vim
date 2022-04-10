@@ -178,8 +178,8 @@ call s:h('StatusLineTerm', s:none, s:bglighter, [s:attrs.bold])
 call s:h('StatusLineTermNC', s:none, s:bglight)
 call s:h('WildMenu', s:bg, s:purple, [s:attrs.bold])
 call s:h('CursorLine', s:none, s:subtle)
-call s:h("Cursor", { "fg": s:bg, "bg": s:cyan })
-call s:h("iCursor", { "fg": s:cyan, "bg": s:bg })
+call s:h('Cursor',  s:bg, s:cyan )
+call s:h('iCursor',  s:cyan, s:bg )
 
 hi! link ColorColumn  CakeBgDark
 hi! link CursorColumn CursorLine
