@@ -9,7 +9,7 @@ let g:cake#palette.bgdarker  = ['#1D1C1A', 234]
 
 let g:cake#palette.comment   = ['#8E8E8D',  61]
 let g:cake#palette.selection = ['#565554', 239]
-let g:cake#palette.subtle    = ['#A6A3A2', 238]
+let g:cake#palette.subtle    = ['#3A3937', 238]
 
 let g:cake#palette.cyan      = ['#A4D8D8', 117]
 let g:cake#palette.green     = ['#BEE5B0',  84]
