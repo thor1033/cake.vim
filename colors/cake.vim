@@ -179,7 +179,7 @@ call s:h('StatusLineTermNC', s:none, s:bglight)
 call s:h('WildMenu', s:bg, s:purple, [s:attrs.bold])
 call s:h('CursorLine', s:none, s:subtle)
 
-hi! link Cursor CakeBgDark CakeCyan
+hi! link Cursor CakeCyan
 hi! link iCursor CakeCyan
 
 hi! link ColorColumn  CakeBgDark
