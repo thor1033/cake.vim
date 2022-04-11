@@ -2,8 +2,12 @@
 let s:overrides = get(g:, "cake_color_overrides", {})
 =======
 let g:cake#palette           = {}
+<<<<<<< HEAD
 let g:cake#palette.fg        = ['#FFFFFF', 253]
 >>>>>>> parent of 1b9b466 (prøver igen)
+=======
+let g:cake#palette.fg        = ['#07060B', 253]
+>>>>>>> parent of 6223b13 (sss)
 
 let g:cake#palette.bglighter = ['#FFFFFF', 238]
 let g:cake#palette.bglight   = ['#FFFFFF', 237]
