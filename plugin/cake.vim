@@ -109,4 +109,4 @@ if exists('g:loaded_cmp')
   hi! link CmpItemKindTypeParameter CakeCyan
 
   hi! link CmpItemMenu Comment
-endifndif
+endif
