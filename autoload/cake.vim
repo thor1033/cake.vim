@@ -1,9 +1,9 @@
 let g:cake#palette           = {}
-let g:cake#palette.fg        = ['#1D1C1A', 253]
+let g:cake#palette.fg        = ['#FFFFFF', 253]
 
 let g:cake#palette.bglighter = ['#FFFFFF', 238]
 let g:cake#palette.bglight   = ['#FFFFFF', 237]
-let g:cake#palette.bg        = ['#1D1C1A', 236]
+let g:cake#palette.bg        = ['#FFFFFF', 236]
 let g:cake#palette.bgdark    = ['#1D1C1A', 235]
 let g:cake#palette.bgdarker  = ['#1D1C1A', 234]
 
