@@ -9,10 +9,10 @@ if exists('g:loaded_fzf') && ! exists('g:fzf_colors')
     \ 'hl':      ['fg', 'Search'],
     \ 'fg+':     ['fg', 'Normal'],
     \ 'bg+':     ['bg', 'Normal'],
-    \ 'hl+':     ['fg', 'MarbleOrange'],
-    \ 'info':    ['fg', 'MarblePurple'],
+    \ 'hl+':     ['fg', 'CakeOrange'],
+    \ 'info':    ['fg', 'CakePurple'],
     \ 'border':  ['fg', 'Ignore'],
-    \ 'prompt':  ['fg', 'MarbleGreen'],
+    \ 'prompt':  ['fg', 'CakeGreen'],
     \ 'pointer': ['fg', 'Exception'],
     \ 'marker':  ['fg', 'Keyword'],
     \ 'spinner': ['fg', 'Label'],
@@ -21,13 +21,13 @@ if exists('g:loaded_fzf') && ! exists('g:fzf_colors')
 endif
 
 if exists('g:ale_enabled')
-  hi! link ALEError              MarbleErrorLine
-  hi! link ALEWarning            MarbleWarnLine
-  hi! link ALEInfo               MarbleInfoLine
+  hi! link ALEError              CakeErrorLine
+  hi! link ALEWarning            CakeWarnLine
+  hi! link ALEInfo               CakeInfoLine
 
-  hi! link ALEErrorSign          MarbleRed
-  hi! link ALEWarningSign        MarbleOrange
-  hi! link ALEInfoSign           MarbleCyan
+  hi! link ALEErrorSign          CakeRed
+  hi! link ALEWarningSign        CakeOrange
+  hi! link ALEInfoSign           CakeCyan
 
   hi! link ALEVirtualTextError   Comment
   hi! link ALEVirtualTextWarning Comment
@@ -57,56 +57,56 @@ if exists('g:loaded_nvim_treesitter')
   hi! link TSPunctSpecial Special
   hi! link TSConstMacro Macro
   hi! link TSStringEscape Character
-  hi! link TSSymbol MarblePurple
-  hi! link TSAnnotation MarbleYellow
-  hi! link TSAttribute MarbleGreenItalic
-  hi! link TSFuncBuiltin MarbleCyan
+  hi! link TSSymbol CakePurple
+  hi! link TSAnnotation CakeYellow
+  hi! link TSAttribute CakeGreenItalic
+  hi! link TSFuncBuiltin CakeCyan
   hi! link TSFuncMacro Function
-  hi! link TSParameter MarbleOrangeItalic
-  hi! link TSParameterReference MarbleOrange
-  hi! link TSField MarbleOrange
-  hi! link TSConstructor MarbleCyan
-  hi! link TSLabel MarblePurpleItalic
-  hi! link TSVariableBuiltin MarblePurpleItalic
-  hi! link TSStrong MarbleFgBold
-  hi! link TSEmphasis MarbleFg
+  hi! link TSParameter CakeOrangeItalic
+  hi! link TSParameterReference CakeOrange
+  hi! link TSField CakeOrange
+  hi! link TSConstructor CakeCyan
+  hi! link TSLabel CakePurpleItalic
+  hi! link TSVariableBuiltin CakePurpleItalic
+  hi! link TSStrong CakeFgBold
+  hi! link TSEmphasis CakeFg
   hi! link TSUnderline Underlined
-  hi! link TSTitle MarbleYellow
-  hi! link TSLiteral MarbleYellow
-  hi! link TSURI MarbleYellow
-  hi! link TSTagAttribute MarbleGreenItalic
+  hi! link TSTitle CakeYellow
+  hi! link TSLiteral CakeYellow
+  hi! link TSURI CakeYellow
+  hi! link TSTagAttribute CakeGreenItalic
 endif
 if exists('g:loaded_cmp')
-  hi! link CmpItemAbbrDeprecated MarbleError
+  hi! link CmpItemAbbrDeprecated CakeError
 
-  hi! link CmpItemAbbrMatch MarbleCyan
-  hi! link CmpItemAbbrMatchFuzzy MarbleCyan
+  hi! link CmpItemAbbrMatch CakeCyan
+  hi! link CmpItemAbbrMatchFuzzy CakeCyan
 
-  hi! link CmpItemKindText MarbleFg
+  hi! link CmpItemKindText CakeFg
   hi! link CmpItemKindMethod Function
   hi! link CmpItemKindFunction Function
-  hi! link CmpItemKindConstructor MarbleCyan
-  hi! link CmpItemKindField MarbleOrange
-  hi! link CmpItemKindVariable MarblePurpleItalic
-  hi! link CmpItemKindClass MarbleCyan
-  hi! link CmpItemKindInterface MarbleCyan
-  hi! link CmpItemKindModule MarbleYellow
-  hi! link CmpItemKindProperty MarblePink
-  hi! link CmpItemKindUnit MarbleFg
-  hi! link CmpItemKindValue MarbleYellow
-  hi! link CmpItemKindEnum MarblePink
-  hi! link CmpItemKindKeyword MarblePink
-  hi! link CmpItemKindSnippet MarbleFg
-  hi! link CmpItemKindColor MarbleYellow
-  hi! link CmpItemKindFile MarbleYellow
-  hi! link CmpItemKindReference MarbleOrange
-  hi! link CmpItemKindFolder MarbleYellow
-  hi! link CmpItemKindEnumMember MarblePurple
-  hi! link CmpItemKindConstant MarblePurple
-  hi! link CmpItemKindStruct MarblePink
-  hi! link CmpItemKindEvent MarbleFg
-  hi! link CmpItemKindOperator MarblePink
-  hi! link CmpItemKindTypeParameter MarbleCyan
+  hi! link CmpItemKindConstructor CakeCyan
+  hi! link CmpItemKindField CakeOrange
+  hi! link CmpItemKindVariable CakePurpleItalic
+  hi! link CmpItemKindClass CakeCyan
+  hi! link CmpItemKindInterface CakeCyan
+  hi! link CmpItemKindModule CakeYellow
+  hi! link CmpItemKindProperty CakePink
+  hi! link CmpItemKindUnit CakeFg
+  hi! link CmpItemKindValue CakeYellow
+  hi! link CmpItemKindEnum CakePink
+  hi! link CmpItemKindKeyword CakePink
+  hi! link CmpItemKindSnippet CakeFg
+  hi! link CmpItemKindColor CakeYellow
+  hi! link CmpItemKindFile CakeYellow
+  hi! link CmpItemKindReference CakeOrange
+  hi! link CmpItemKindFolder CakeYellow
+  hi! link CmpItemKindEnumMember CakePurple
+  hi! link CmpItemKindConstant CakePurple
+  hi! link CmpItemKindStruct CakePink
+  hi! link CmpItemKindEvent CakeFg
+  hi! link CmpItemKindOperator CakePink
+  hi! link CmpItemKindTypeParameter CakeCyan
 
   hi! link CmpItemMenu Comment
-endif
+endifndif
