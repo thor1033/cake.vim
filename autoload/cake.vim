@@ -1,32 +1,16 @@
-<<<<<<< HEAD
-let s:overrides = get(g:, "cake_color_overrides", {})
-=======
 let g:cake#palette           = {}
-<<<<<<< HEAD
-<<<<<<< HEAD
 let g:cake#palette.fg        = ['#FFFFFF', 253]
->>>>>>> parent of 1b9b466 (prøver igen)
-=======
-let g:cake#palette.fg        = ['#07060B', 253]
->>>>>>> parent of 6223b13 (sss)
-=======
-let g:cake#palette.fg        = ['#07060B', 253]
->>>>>>> parent of 6223b13 (sss)
 
 let g:cake#palette.bglighter = ['#FFFFFF', 238]
 let g:cake#palette.bglight   = ['#FFFFFF', 237]
-let g:cake#palette.bg        = ['#1D1C1A', 236]
+let g:cake#palette.bg        = ['#FFFFFF', 236]
 let g:cake#palette.bgdark    = ['#1D1C1A', 235]
 let g:cake#palette.bgdarker  = ['#1D1C1A', 234]
 
 let g:cake#palette.comment   = ['#8E8E8D',  61]
 let g:cake#palette.selection = ['#565554', 239]
-let g:cake#palette.subtle    = ['#A6A3A2', 238]
+let g:cake#palette.subtle    = ['#3A3937', 238]
 
-<<<<<<< HEAD
-function! cake#GetColors()
-  return s:colors
-=======
 let g:cake#palette.cyan      = ['#A4D8D8', 117]
 let g:cake#palette.green     = ['#BEE5B0',  84]
 let g:cake#palette.orange    = ['#FBBB62', 215]
@@ -64,5 +48,4 @@ func! cake#should_abort(...)
         return 1
     endif
     return 0
->>>>>>> parent of 1b9b466 (prøver igen)
 endfunction
