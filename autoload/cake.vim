@@ -13,24 +13,24 @@ let g:cake#palette.subtle    = ['#3A3937', 238]
 
 let g:cake#palette.cyan      = ['#A4D8D8', 117]
 let g:cake#palette.green     = ['#BEE5B0',  84]
-let g:cake#palette.orange    = ['#FBBB62', 215]
-let g:cake#palette.pink      = ['#F0B6D5', 212]
-let g:cake#palette.purple    = ['#9A7FAE', 141]
+let g:cake#palette.orange    = ['#F8C57C', 215]
+let g:cake#palette.pink      = ['#EFB9C0', 212]
+let g:cake#palette.purple    = ['#BCAFCF', 141]
 let g:cake#palette.red       = ['#E56E90', 203]
-let g:cake#palette.yellow    = ['#F8F1AE', 228]
+let g:cake#palette.yellow    = ['#F08080', 228]
 
 "
 " ANSI
 "
 let g:cake#palette.color_0  = '#21222C'
-let g:cake#palette.color_1  = '#FBBB62'
+let g:cake#palette.color_1  = '#F8C57C'
 let g:cake#palette.color_2  = '#BEE5B0'
-let g:cake#palette.color_3  = '#F8F1AE'
-let g:cake#palette.color_4  = '#9A7FAE'
-let g:cake#palette.color_5  = '#F0B6D5'
+let g:cake#palette.color_3  = '#F08080'
+let g:cake#palette.color_4  = '#BCAFCF'
+let g:cake#palette.color_5  = '#EFB9C0'
 let g:cake#palette.color_6  = '#A4D8D8'
 let g:cake#palette.color_7  = '#07060B'
-let g:cake#palette.color_8  = '#9A7FAE'
+let g:cake#palette.color_8  = '#BCAFCF'
 let g:cake#palette.color_9  = '#FF6E6E'
 let g:cake#palette.color_10 = '#69FF94'
 let g:cake#palette.color_11 = '#FFFFA5'
