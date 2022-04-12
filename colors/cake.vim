@@ -170,6 +170,10 @@ call s:h('CakeDiffDelete', s:red, s:bgdark)
 
 
 set background=dark
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkwait10
 
 call s:h('Normal', s:fg, g:cake_colorterm || has('gui_running') ? s:bg : s:none )
 call s:h('StatusLine', s:none, s:bglighter, [s:attrs.bold])
@@ -203,6 +207,7 @@ hi! link PmenuThumb   CakeSelection
 hi! link Question     CakeFgBold
 hi! link Search       CakeSearch
 call s:h('SignColumn', s:comment)
+call s:h('Cursor' ,s:purple, s:purple)
 call s:h('iCursor' ,s:purple, s:purple)
 hi! link TabLine      CakeBoundary
 hi! link TabLineFill  CakeBgDark
