@@ -16,8 +16,8 @@ let g:cake#palette.green     = ['#BEE5B0',  84]
 let g:cake#palette.orange    = ['#F8C57C', 215]
 let g:cake#palette.pink      = ['#EFB9C0', 212]
 let g:cake#palette.purple    = ['#BCAFCF', 141]
-let g:cake#palette.red       = ['#E56E90', 203]
-let g:cake#palette.yellow    = ['#F08080', 228]
+let g:cake#palette.red       = ['#F08080', 203]
+let g:cake#palette.yellow    = ['#F8F1AE', 228]
 
 "
 " ANSI
@@ -25,7 +25,7 @@ let g:cake#palette.yellow    = ['#F08080', 228]
 let g:cake#palette.color_0  = '#21222C'
 let g:cake#palette.color_1  = '#F8C57C'
 let g:cake#palette.color_2  = '#BEE5B0'
-let g:cake#palette.color_3  = '#F08080'
+let g:cake#palette.color_3  = '#F8F1AE'
 let g:cake#palette.color_4  = '#BCAFCF'
 let g:cake#palette.color_5  = '#EFB9C0'
 let g:cake#palette.color_6  = '#A4D8D8'
