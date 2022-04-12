@@ -289,22 +289,3 @@ hi! link helpHyperTextJump CakeLink
 hi! link helpCommand CakePurple
 hi! link helpExample CakeGreen
 hi! link helpBacktick Special
-
-call s:h("htmlArg", { "fg": s:yellow })
-call s:h("htmlBold", { "fg": s:yellow, "gui": "bold", "cterm": "bold" })
-call s:h("htmlBoldItalic", { "fg": s:green, "gui": "bold,italic", "cterm": "bold,italic" })
-call s:h("htmlEndTag", { "fg": s:fg })
-call s:h("htmlH1", { "fg": s:red })
-call s:h("htmlH2", { "fg": s:red })
-call s:h("htmlH3", { "fg": s:red })
-call s:h("htmlH4", { "fg": s:red })
-call s:h("htmlH5", { "fg": s:red })
-call s:h("htmlH6", { "fg": s:red })
-call s:h("htmlItalic", { "fg": s:purple, "gui": "italic", "cterm": "italic" })
-call s:h("htmlLink", { "fg": s:cyan, "gui": "underline", "cterm": "underline" })
-call s:h("htmlSpecialChar", { "fg": s:yellow })
-call s:h("htmlSpecialTagName", { "fg": s:red })
-call s:h("htmlTag", { "fg": s:fg })
-call s:h("htmlTagN", { "fg": s:red })
-call s:h("htmlTagName", { "fg": s:red })
-call s:h("htmlTitle", { "fg": s:fg })
