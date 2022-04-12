@@ -177,7 +177,7 @@ call s:h('StatusLineNC', s:none, s:bglight)
 call s:h('StatusLineTerm', s:none, s:bglighter, [s:attrs.bold])
 call s:h('StatusLineTermNC', s:none, s:bglight)
 call s:h('WildMenu', s:bg, s:purple, [s:attrs.bold])
-call s:h('CursorLine', s:none, s:cyan)
+call s:h('CursorLine', s:none, s:subtle)
 
 hi! link ColorColumn  CakeBgDark
 hi! link CursorColumn CursorLine
@@ -203,7 +203,7 @@ hi! link PmenuThumb   CakeSelection
 hi! link Question     CakeFgBold
 hi! link Search       CakeSearch
 call s:h('SignColumn', s:comment)
-call s:h('Cursor' ,s:purple, s:purple)
+call s:h('iCursor' ,s:purple, s:purple)
 hi! link TabLine      CakeBoundary
 hi! link TabLineFill  CakeBgDark
 hi! link TabLineSel   Normal
