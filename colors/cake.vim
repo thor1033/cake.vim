@@ -203,6 +203,7 @@ hi! link PmenuThumb   CakeSelection
 hi! link Question     CakeFgBold
 hi! link Search       CakeSearch
 call s:h('SignColumn', s:comment)
+call s:h('Cursor' ,s:purple)
 hi! link TabLine      CakeBoundary
 hi! link TabLineFill  CakeBgDark
 hi! link TabLineSel   Normal
