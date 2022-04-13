@@ -69,7 +69,7 @@ if exists('g:cake_contrast')
 endif
 
 if !exists('g:cake_contrast_dark')
-  let g:cake_contrast_dark='medium'
+  let g:cake_contrast_dark='hard'
 endif
 
 if !exists('g:cake_contrast_light')
