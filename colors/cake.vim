@@ -143,8 +143,8 @@ call s:Color('light0_soft', ['#dbdbdc', 228])     " 242-229-188
 call s:Color('light1',      ['#ccccc4', 223])     " 235-219-178
 call s:Color('light2',      ['#faf8f6', 250])     " 213-196-161
 call s:Color('light3',      ['#faf8f6', 248])     " 189-174-147
-call s:Color('light4',      ['#a8a6a4', 246])     " 168-153-132
-call s:Color('light4_256',  ['#a8a6a4', 246])     " 168-153-132
+call s:Color('light4',      ['#faf8f6', 246])     " 168-153-132
+call s:Color('light4_256',  ['#faf8f6', 246])     " 168-153-132
 
 call s:Color('bright_red',     ['#f08080', 167])     " 251-73-52
 call s:Color('bright_green',   ['#bee5b0', 142])     " 184-187-38
