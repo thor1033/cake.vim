@@ -1,8 +1,8 @@
 " -----------------------------------------------------------------------------
-" File: gruvbox.vim
+" File: cake.vim
 " Description: Retro groove color scheme for Vim
 " Author: morhetz <morhetz@gmail.com>
-" Source: https://github.com/gruvbox-community/gruvbox
+" Source: https://github.com/cake-community/cake
 " -----------------------------------------------------------------------------
 
 " Supporting code -------------------------------------------------------------
@@ -15,7 +15,7 @@ if version > 580
   endif
 endif
 
-let g:colors_name='gruvbox'
+let g:colors_name='cake'
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 256
   finish
@@ -24,56 +24,56 @@ endif
 " }}}
 " Global Settings: {{{
 
-if !exists('g:gruvbox_bold')
-  let g:gruvbox_bold=1
+if !exists('g:cake_bold')
+  let g:cake_bold=1
 endif
-if !exists('g:gruvbox_italic')
+if !exists('g:cake_italic')
   if has('gui_running') || $TERM_ITALICS == 'true'
-    let g:gruvbox_italic=1
+    let g:cake_italic=1
   else
-    let g:gruvbox_italic=0
+    let g:cake_italic=0
   endif
 endif
-if !exists('g:gruvbox_undercurl')
-  let g:gruvbox_undercurl=1
+if !exists('g:cake_undercurl')
+  let g:cake_undercurl=1
 endif
-if !exists('g:gruvbox_underline')
-  let g:gruvbox_underline=1
+if !exists('g:cake_underline')
+  let g:cake_underline=1
 endif
-if !exists('g:gruvbox_inverse')
-  let g:gruvbox_inverse=1
-endif
-
-if !exists('g:gruvbox_guisp_fallback') || index(['fg', 'bg'], g:gruvbox_guisp_fallback) == -1
-  let g:gruvbox_guisp_fallback='NONE'
+if !exists('g:cake_inverse')
+  let g:cake_inverse=1
 endif
 
-if !exists('g:gruvbox_improved_strings')
-  let g:gruvbox_improved_strings=0
+if !exists('g:cake_guisp_fallback') || index(['fg', 'bg'], g:cake_guisp_fallback) == -1
+  let g:cake_guisp_fallback='NONE'
 endif
 
-if !exists('g:gruvbox_improved_warnings')
-  let g:gruvbox_improved_warnings=0
+if !exists('g:cake_improved_strings')
+  let g:cake_improved_strings=0
 endif
 
-if !exists('g:gruvbox_termcolors')
-  let g:gruvbox_termcolors=256
+if !exists('g:cake_improved_warnings')
+  let g:cake_improved_warnings=0
 endif
 
-if !exists('g:gruvbox_invert_indent_guides')
-  let g:gruvbox_invert_indent_guides=0
+if !exists('g:cake_termcolors')
+  let g:cake_termcolors=256
 endif
 
-if exists('g:gruvbox_contrast')
-  echo 'g:gruvbox_contrast is deprecated; use g:gruvbox_contrast_light and g:gruvbox_contrast_dark instead'
+if !exists('g:cake_invert_indent_guides')
+  let g:cake_invert_indent_guides=0
 endif
 
-if !exists('g:gruvbox_contrast_dark')
-  let g:gruvbox_contrast_dark='medium'
+if exists('g:cake_contrast')
+  echo 'g:cake_contrast is deprecated; use g:cake_contrast_light and g:cake_contrast_dark instead'
 endif
 
-if !exists('g:gruvbox_contrast_light')
-  let g:gruvbox_contrast_light='medium'
+if !exists('g:cake_contrast_dark')
+  let g:cake_contrast_dark='medium'
+endif
+
+if !exists('g:cake_contrast_light')
+  let g:cake_contrast_light='medium'
 endif
 
 let s:is_dark=(&background == 'dark')
@@ -104,7 +104,7 @@ function! s:Color(name, default, ...)
       return 1
     else
       " invalid value
-      echo a:name 'is invalid, usage: let g:gruvbox_colors.color = (["#ffffff", 255]|"#ffffff"|255)'
+      echo a:name 'is invalid, usage: let g:cake_colors.color = (["#ffffff", 255]|"#ffffff"|255)'
       return 0
     endif
 
@@ -118,11 +118,11 @@ endfunction
 " }}}
 " Palette: {{{
 
-" get the global gruvbox palette options, if any
-let g:gruvbox_colors = get(g:, 'gruvbox_colors', {})
+" get the global cake palette options, if any
+let g:cake_colors = get(g:, 'cake_colors', {})
 " initialize the script palette
-let s:gb = copy(g:gruvbox_colors)
-let g:current_gruvbox_colors = s:gb
+let s:gb = copy(g:cake_colors)
+let g:current_cake_colors = s:gb
 
 " set palette default colors
 call s:Color('dark0_hard',  ['#1d2021', 234])     " 29-32-33
@@ -178,27 +178,27 @@ call s:Color('None', ['NONE','NONE'])
 " Setup Emphasis: {{{
 
 let s:bold = 'bold,'
-if g:gruvbox_bold == 0
+if g:cake_bold == 0
   let s:bold = ''
 endif
 
 let s:italic = 'italic,'
-if g:gruvbox_italic == 0
+if g:cake_italic == 0
   let s:italic = ''
 endif
 
 let s:underline = 'underline,'
-if g:gruvbox_underline == 0
+if g:cake_underline == 0
   let s:underline = ''
 endif
 
 let s:undercurl = 'undercurl,'
-if g:gruvbox_undercurl == 0
+if g:cake_undercurl == 0
   let s:undercurl = ''
 endif
 
 let s:inverse = 'inverse,'
-if g:gruvbox_inverse == 0
+if g:cake_inverse == 0
   let s:inverse = ''
 endif
 
@@ -212,9 +212,9 @@ let s:none = ['NONE', 'NONE']
 " determine relative colors
 if s:is_dark
   let s:bg0  = s:gb.dark0
-  if g:gruvbox_contrast_dark == 'soft'
+  if g:cake_contrast_dark == 'soft'
     let s:bg0  = s:gb.dark0_soft
-  elseif g:gruvbox_contrast_dark == 'hard'
+  elseif g:cake_contrast_dark == 'hard'
     let s:bg0  = s:gb.dark0_hard
   endif
 
@@ -242,9 +242,9 @@ if s:is_dark
   let s:orange = s:gb.bright_orange
 else
   let s:bg0  = s:gb.light0
-  if g:gruvbox_contrast_light == 'soft'
+  if g:cake_contrast_light == 'soft'
     let s:bg0  = s:gb.light0_soft
-  elseif g:gruvbox_contrast_light == 'hard'
+  elseif g:cake_contrast_light == 'hard'
     let s:bg0  = s:gb.light0_hard
   endif
 
@@ -273,7 +273,7 @@ else
 endif
 
 " reset to 16 colors fallback
-if g:gruvbox_termcolors == 16
+if g:cake_termcolors == 16
   let s:bg0[1]    = 0
   let s:fg4[1]    = 7
   let s:gray[1]   = 8
@@ -375,78 +375,78 @@ endif
 " Overload Setting: {{{
 
 let s:hls_cursor = s:gb.orange
-if exists('g:gruvbox_hls_cursor')
-  let s:hls_cursor = get(s:gb, g:gruvbox_hls_cursor)
+if exists('g:cake_hls_cursor')
+  let s:hls_cursor = get(s:gb, g:cake_hls_cursor)
 endif
 
 let s:hls_highlight = s:gb.yellow
-if exists('g:gruvbox_hls_highlight')
-  let s:hls_highlight = get(s:gb, g:gruvbox_hls_highlight)
+if exists('g:cake_hls_highlight')
+  let s:hls_highlight = get(s:gb, g:cake_hls_highlight)
 endif
 
 let s:number_column = s:none
-if exists('g:gruvbox_number_column')
-  let s:number_column = get(s:gb, g:gruvbox_number_column)
+if exists('g:cake_number_column')
+  let s:number_column = get(s:gb, g:cake_number_column)
 endif
 
 let s:sign_column = s:gb.bg1
-if exists('g:gruvbox_sign_column')
-  let s:sign_column = get(s:gb, g:gruvbox_sign_column)
+if exists('g:cake_sign_column')
+  let s:sign_column = get(s:gb, g:cake_sign_column)
 endif
 
 let s:color_column = s:gb.bg1
-if exists('g:gruvbox_color_column')
-  let s:color_column = get(s:gb, g:gruvbox_color_column)
+if exists('g:cake_color_column')
+  let s:color_column = get(s:gb, g:cake_color_column)
 endif
 
 let s:vert_split = s:gb.bg0
-if exists('g:gruvbox_vert_split')
-  let s:vert_split = get(s:gb, g:gruvbox_vert_split)
+if exists('g:cake_vert_split')
+  let s:vert_split = get(s:gb, g:cake_vert_split)
 endif
 
 let s:invert_signs = ''
-if exists('g:gruvbox_invert_signs')
-  if g:gruvbox_invert_signs == 1
+if exists('g:cake_invert_signs')
+  if g:cake_invert_signs == 1
     let s:invert_signs = s:inverse
   endif
 endif
 
 let s:invert_selection = s:inverse
-if exists('g:gruvbox_invert_selection')
-  if g:gruvbox_invert_selection == 0
+if exists('g:cake_invert_selection')
+  if g:cake_invert_selection == 0
     let s:invert_selection = ''
   endif
 endif
 
 let s:invert_tabline = ''
-if exists('g:gruvbox_invert_tabline')
-  if g:gruvbox_invert_tabline == 1
+if exists('g:cake_invert_tabline')
+  if g:cake_invert_tabline == 1
     let s:invert_tabline = s:inverse
   endif
 endif
 
 let s:tabline_sel = s:gb.green
-if exists('g:gruvbox_tabline_sel')
-  let s:tabline_sel = get(s:gb, g:gruvbox_tabline_sel)
+if exists('g:cake_tabline_sel')
+  let s:tabline_sel = get(s:gb, g:cake_tabline_sel)
 endif
 
 let s:italicize_comments = s:italic
-if exists('g:gruvbox_italicize_comments')
-  if g:gruvbox_italicize_comments == 0
+if exists('g:cake_italicize_comments')
+  if g:cake_italicize_comments == 0
     let s:italicize_comments = ''
   endif
 endif
 
 let s:italicize_strings = ''
-if exists('g:gruvbox_italicize_strings')
-  if g:gruvbox_italicize_strings == 1
+if exists('g:cake_italicize_strings')
+  if g:cake_italicize_strings == 1
     let s:italicize_strings = s:italic
   endif
 endif
 
 let s:italicize_operators = ''
-if exists('g:gruvbox_italicize_operators')
-  if g:gruvbox_italicize_operators == 1
+if exists('g:cake_italicize_operators')
+  if g:cake_italicize_operators == 1
     let s:italicize_operators = s:italic
   endif
 endif
@@ -476,12 +476,12 @@ function! s:HL(group, fg, ...)
 
   " special fallback
   if a:0 >= 3
-    if g:gruvbox_guisp_fallback != 'NONE'
+    if g:cake_guisp_fallback != 'NONE'
       let fg = a:3
     endif
 
     " bg fallback mode should invert higlighting
-    if g:gruvbox_guisp_fallback == 'bg'
+    if g:cake_guisp_fallback == 'bg'
       let emstr .= 'inverse,'
     endif
   endif
@@ -501,51 +501,51 @@ function! s:HL(group, fg, ...)
 endfunction
 
 " }}}
-" Gruvbox Hi Groups: {{{
+" Cake Hi Groups: {{{
 
 " memoize common hi groups
-call s:HL('GruvboxFg0', s:gb.fg0)
-call s:HL('GruvboxFg1', s:gb.fg1)
-call s:HL('GruvboxFg2', s:gb.fg2)
-call s:HL('GruvboxFg3', s:gb.fg3)
-call s:HL('GruvboxFg4', s:gb.fg4)
-call s:HL('GruvboxGray', s:gb.gray)
-call s:HL('GruvboxBg0', s:gb.bg0)
-call s:HL('GruvboxBg1', s:gb.bg1)
-call s:HL('GruvboxBg2', s:gb.bg2)
-call s:HL('GruvboxBg3', s:gb.bg3)
-call s:HL('GruvboxBg4', s:gb.bg4)
+call s:HL('CakeFg0', s:gb.fg0)
+call s:HL('CakeFg1', s:gb.fg1)
+call s:HL('CakeFg2', s:gb.fg2)
+call s:HL('CakeFg3', s:gb.fg3)
+call s:HL('CakeFg4', s:gb.fg4)
+call s:HL('CakeGray', s:gb.gray)
+call s:HL('CakeBg0', s:gb.bg0)
+call s:HL('CakeBg1', s:gb.bg1)
+call s:HL('CakeBg2', s:gb.bg2)
+call s:HL('CakeBg3', s:gb.bg3)
+call s:HL('CakeBg4', s:gb.bg4)
 
-call s:HL('GruvboxRed', s:gb.red)
-call s:HL('GruvboxRedBold', s:gb.red, s:none, s:bold)
-call s:HL('GruvboxGreen', s:gb.green)
-call s:HL('GruvboxGreenBold', s:gb.green, s:none, s:bold)
-call s:HL('GruvboxYellow', s:gb.yellow)
-call s:HL('GruvboxYellowBold', s:gb.yellow, s:none, s:bold)
-call s:HL('GruvboxBlue', s:gb.blue)
-call s:HL('GruvboxBlueBold', s:gb.blue, s:none, s:bold)
-call s:HL('GruvboxPurple', s:gb.purple)
-call s:HL('GruvboxPurpleBold', s:gb.purple, s:none, s:bold)
-call s:HL('GruvboxAqua', s:gb.pink)
-call s:HL('GruvboxAquaBold', s:gb.pink, s:none, s:bold)
-call s:HL('GruvboxOrange', s:gb.orange)
-call s:HL('GruvboxOrangeBold', s:gb.orange, s:none, s:bold)
+call s:HL('CakeRed', s:gb.red)
+call s:HL('CakeRedBold', s:gb.red, s:none, s:bold)
+call s:HL('CakeGreen', s:gb.green)
+call s:HL('CakeGreenBold', s:gb.green, s:none, s:bold)
+call s:HL('CakeYellow', s:gb.yellow)
+call s:HL('CakeYellowBold', s:gb.yellow, s:none, s:bold)
+call s:HL('CakeBlue', s:gb.blue)
+call s:HL('CakeBlueBold', s:gb.blue, s:none, s:bold)
+call s:HL('CakePurple', s:gb.purple)
+call s:HL('CakePurpleBold', s:gb.purple, s:none, s:bold)
+call s:HL('CakeAqua', s:gb.pink)
+call s:HL('CakeAquaBold', s:gb.pink, s:none, s:bold)
+call s:HL('CakeOrange', s:gb.orange)
+call s:HL('CakeOrangeBold', s:gb.orange, s:none, s:bold)
 
-call s:HL('GruvboxRedSign', s:gb.red, s:sign_column, s:invert_signs)
-call s:HL('GruvboxGreenSign', s:gb.green, s:sign_column, s:invert_signs)
-call s:HL('GruvboxYellowSign', s:gb.yellow, s:sign_column, s:invert_signs)
-call s:HL('GruvboxBlueSign', s:gb.blue, s:sign_column, s:invert_signs)
-call s:HL('GruvboxPurpleSign', s:gb.purple, s:sign_column, s:invert_signs)
-call s:HL('GruvboxAquaSign', s:gb.pink, s:sign_column, s:invert_signs)
-call s:HL('GruvboxOrangeSign', s:gb.orange, s:sign_column, s:invert_signs)
+call s:HL('CakeRedSign', s:gb.red, s:sign_column, s:invert_signs)
+call s:HL('CakeGreenSign', s:gb.green, s:sign_column, s:invert_signs)
+call s:HL('CakeYellowSign', s:gb.yellow, s:sign_column, s:invert_signs)
+call s:HL('CakeBlueSign', s:gb.blue, s:sign_column, s:invert_signs)
+call s:HL('CakePurpleSign', s:gb.purple, s:sign_column, s:invert_signs)
+call s:HL('CakeAquaSign', s:gb.pink, s:sign_column, s:invert_signs)
+call s:HL('CakeOrangeSign', s:gb.orange, s:sign_column, s:invert_signs)
 
-call s:HL('GruvboxRedUnderline', s:none, s:none, s:undercurl, s:gb.red)
-call s:HL('GruvboxGreenUnderline', s:none, s:none, s:undercurl, s:gb.green)
-call s:HL('GruvboxYellowUnderline', s:none, s:none, s:undercurl, s:gb.yellow)
-call s:HL('GruvboxBlueUnderline', s:none, s:none, s:undercurl, s:gb.blue)
-call s:HL('GruvboxPurpleUnderline', s:none, s:none, s:undercurl, s:gb.purple)
-call s:HL('GruvboxAquaUnderline', s:none, s:none, s:undercurl, s:gb.pink)
-call s:HL('GruvboxOrangeUnderline', s:none, s:none, s:undercurl, s:gb.orange)
+call s:HL('CakeRedUnderline', s:none, s:none, s:undercurl, s:gb.red)
+call s:HL('CakeGreenUnderline', s:none, s:none, s:undercurl, s:gb.green)
+call s:HL('CakeYellowUnderline', s:none, s:none, s:undercurl, s:gb.yellow)
+call s:HL('CakeBlueUnderline', s:none, s:none, s:undercurl, s:gb.blue)
+call s:HL('CakePurpleUnderline', s:none, s:none, s:undercurl, s:gb.purple)
+call s:HL('CakeAquaUnderline', s:none, s:none, s:undercurl, s:gb.pink)
+call s:HL('CakeOrangeUnderline', s:none, s:none, s:undercurl, s:gb.orange)
 
 " }}}
 
@@ -557,16 +557,16 @@ call s:HL('Normal', s:gb.fg1, s:gb.bg0)
 
 " Correct background (see issue #7):
 " --- Problem with changing between dark and light on 256 color terminal
-" --- https://github.com/morhetz/gruvbox/issues/7
+" --- https://github.com/morhetz/cake/issues/7
 if exists('v:vim_did_enter')
-  let g:gruvbox_vim_did_enter = v:vim_did_enter
+  let g:cake_vim_did_enter = v:vim_did_enter
 else
-  augroup GruvboxVimEnter
+  augroup CakeVimEnter
     au!
-    autocmd VimEnter * let g:gruvbox_vim_did_enter = 1
+    autocmd VimEnter * let g:cake_vim_did_enter = 1
   augroup End
 endif
-if get(g:, 'gruvbox_vim_did_enter', 0)
+if get(g:, 'cake_vim_did_enter', 0)
   if s:is_dark
     set background=dark
   else
@@ -602,8 +602,8 @@ if version >= 703
   call s:HL('CursorLineNr', s:gb.yellow, s:gb.bg1)
 endif
 
-hi! link NonText GruvboxBg2
-hi! link SpecialKey GruvboxFg4
+hi! link NonText CakeBg2
+hi! link SpecialKey CakeFg4
 
 call s:HL('Visual',    s:none,  s:gb.bg3, s:invert_selection)
 hi! link VisualNOS Visual
@@ -625,21 +625,21 @@ call s:HL('VertSplit', s:gb.bg3, s:vert_split)
 call s:HL('WildMenu', s:gb.blue, s:gb.bg2, s:bold)
 
 " Directory names, special names in listing
-hi! link Directory GruvboxGreenBold
+hi! link Directory CakeGreenBold
 
 " Titles for output from :set all, :autocmd, etc.
-hi! link Title GruvboxGreenBold
+hi! link Title CakeGreenBold
 
 " Error messages on the command line
 call s:HL('ErrorMsg',   s:gb.bg0, s:gb.red, s:bold)
 " More prompt: -- More --
-hi! link MoreMsg GruvboxYellowBold
+hi! link MoreMsg CakeYellowBold
 " Current mode message: -- INSERT --
-hi! link ModeMsg GruvboxYellowBold
+hi! link ModeMsg CakeYellowBold
 " 'Press enter' prompt and yes/no questions
-hi! link Question GruvboxOrangeBold
+hi! link Question CakeOrangeBold
 " Warning messages
-hi! link WarningMsg GruvboxRedBold
+hi! link WarningMsg CakeRedBold
 
 " }}}
 " Gutter: {{{
@@ -670,8 +670,8 @@ hi! link lCursor Cursor
 " }}}
 " Syntax Highlighting: {{{
 
-if g:gruvbox_improved_strings == 0
-  hi! link Special GruvboxOrange
+if g:cake_improved_strings == 0
+  hi! link Special CakeOrange
 else
   call s:HL('Special', s:gb.orange, s:gb.bg1, s:italicize_strings)
 endif
@@ -681,61 +681,61 @@ call s:HL('Todo', s:vim_fg, s:none, s:bold . s:italic)
 call s:HL('Error', s:gb.red, s:none, s:bold . s:inverse)
 
 " Generic statement
-hi! link Statement GruvboxRed
+hi! link Statement CakeRed
 " if, then, else, endif, switch, etc.
-hi! link Conditional GruvboxRed
+hi! link Conditional CakeRed
 " for, do, while, etc.
-hi! link Repeat GruvboxRed
+hi! link Repeat CakeRed
 " case, default, etc.
-hi! link Label GruvboxRed
+hi! link Label CakeRed
 " try, catch, throw
-hi! link Exception GruvboxRed
+hi! link Exception CakeRed
 " sizeof, "+", "*", etc.
 call s:HL('Operator',  s:gb.orange, s:none, s:italicize_operators)
 " Any other keyword
-hi! link Keyword GruvboxRed
+hi! link Keyword CakeRed
 
 " Variable name
-hi! link Identifier GruvboxBlue
+hi! link Identifier CakeBlue
 " Function name
-hi! link Function GruvboxGreenBold
+hi! link Function CakeGreenBold
 
 " Generic preprocessor
-hi! link PreProc GruvboxAqua
+hi! link PreProc CakeAqua
 " Preprocessor #include
-hi! link Include GruvboxAqua
+hi! link Include CakeAqua
 " Preprocessor #define
-hi! link Define GruvboxAqua
+hi! link Define CakeAqua
 " Same as Define
-hi! link Macro GruvboxAqua
+hi! link Macro CakeAqua
 " Preprocessor #if, #else, #endif, etc.
-hi! link PreCondit GruvboxAqua
+hi! link PreCondit CakeAqua
 
 " Generic constant
-hi! link Constant GruvboxPurple
+hi! link Constant CakePurple
 " Character constant: 'c', '/n'
-hi! link Character GruvboxPurple
+hi! link Character CakePurple
 " String constant: "this is a string"
-if g:gruvbox_improved_strings == 0
+if g:cake_improved_strings == 0
   call s:HL('String',  s:gb.green, s:none, s:italicize_strings)
 else
   call s:HL('String',  s:gb.fg1, s:gb.bg1, s:italicize_strings)
 endif
 " Boolean constant: TRUE, false
-hi! link Boolean GruvboxPurple
+hi! link Boolean CakePurple
 " Number constant: 234, 0xff
-hi! link Number GruvboxPurple
+hi! link Number CakePurple
 " Floating point constant: 2.3e10
-hi! link Float GruvboxPurple
+hi! link Float CakePurple
 
 " Generic type
-hi! link Type GruvboxYellow
+hi! link Type CakeYellow
 " static, register, volatile, etc
-hi! link StorageClass GruvboxOrange
+hi! link StorageClass CakeOrange
 " struct, union, enum, etc.
-hi! link Structure GruvboxAqua
+hi! link Structure CakeAqua
 " typedef
-hi! link Typedef GruvboxYellow
+hi! link Typedef CakeYellow
 
 " }}}
 " Completion Menu: {{{
@@ -768,75 +768,75 @@ call s:HL('DiffText',   s:gb.yellow, s:gb.bg0, s:inverse)
 
 if has("spell")
   " Not capitalised word, or compile warnings
-  if g:gruvbox_improved_warnings == 0
-    hi! link SpellCap GruvboxBlueUnderline
+  if g:cake_improved_warnings == 0
+    hi! link SpellCap CakeBlueUnderline
   else
     call s:HL('SpellCap',   s:gb.green, s:none, s:bold . s:italic)
   endif
   " Not recognized word
-  hi! link SpellBad GruvboxRedUnderline
+  hi! link SpellBad CakeRedUnderline
   " Wrong spelling for selected region
-  hi! link SpellLocal GruvboxAquaUnderline
+  hi! link SpellLocal CakeAquaUnderline
   " Rare word
-  hi! link SpellRare GruvboxPurpleUnderline
+  hi! link SpellRare CakePurpleUnderline
 endif
 
 " }}}
 " LSP: {{{
 
-hi! link DiagnosticError GruvboxRed
-hi! link DiagnosticSignError GruvboxRedSign
-hi! link DiagnosticUnderlineError GruvboxRedUnderline
+hi! link DiagnosticError CakeRed
+hi! link DiagnosticSignError CakeRedSign
+hi! link DiagnosticUnderlineError CakeRedUnderline
 
-hi! link DiagnosticWarn GruvboxYellow
-hi! link DiagnosticSignWarn GruvboxYellowSign
-hi! link DiagnosticUnderlineWarn GruvboxYellowUnderline
+hi! link DiagnosticWarn CakeYellow
+hi! link DiagnosticSignWarn CakeYellowSign
+hi! link DiagnosticUnderlineWarn CakeYellowUnderline
 
-hi! link DiagnosticInfo GruvboxBlue
-hi! link DiagnosticSignInfo GruvboxBlueSign
-hi! link DiagnosticUnderlineInfo GruvboxBlueUnderline
+hi! link DiagnosticInfo CakeBlue
+hi! link DiagnosticSignInfo CakeBlueSign
+hi! link DiagnosticUnderlineInfo CakeBlueUnderline
 
-hi! link DiagnosticHint GruvboxAqua
-hi! link DiagnosticSignHint GruvboxAquaSign
-hi! link DiagnosticUnderlineHint GruvboxAquaUnderline
+hi! link DiagnosticHint CakeAqua
+hi! link DiagnosticSignHint CakeAquaSign
+hi! link DiagnosticUnderlineHint CakeAquaUnderline
 
-hi! link LspReferenceText GruvboxYellowBold
-hi! link LspReferenceRead GruvboxYellowBold
-hi! link LspReferenceWrite GruvboxOrangeBold
+hi! link LspReferenceText CakeYellowBold
+hi! link LspReferenceRead CakeYellowBold
+hi! link LspReferenceWrite CakeOrangeBold
 
-hi! link LspCodeLens GruvboxGray
+hi! link LspCodeLens CakeGray
 
 " Backward Compatibilty prior to (https://github.com/neovim/neovim/pull/15585)
-hi! link LspDiagnosticsDefaultError GruvboxRed
-hi! link LspDiagnosticsSignError GruvboxRedSign
-hi! link LspDiagnosticsUnderlineError GruvboxRedUnderline
+hi! link LspDiagnosticsDefaultError CakeRed
+hi! link LspDiagnosticsSignError CakeRedSign
+hi! link LspDiagnosticsUnderlineError CakeRedUnderline
 
-hi! link LspDiagnosticsDefaultWarning GruvboxYellow
-hi! link LspDiagnosticsSignWarning GruvboxYellowSign
-hi! link LspDiagnosticsUnderlineWarning GruvboxYellowUnderline
+hi! link LspDiagnosticsDefaultWarning CakeYellow
+hi! link LspDiagnosticsSignWarning CakeYellowSign
+hi! link LspDiagnosticsUnderlineWarning CakeYellowUnderline
 
-hi! link LspDiagnosticsDefaultInformation GruvboxBlue
-hi! link LspDiagnosticsSignInformation GruvboxBlueSign
-hi! link LspDiagnosticsUnderlineInformation GruvboxBlueUnderline
+hi! link LspDiagnosticsDefaultInformation CakeBlue
+hi! link LspDiagnosticsSignInformation CakeBlueSign
+hi! link LspDiagnosticsUnderlineInformation CakeBlueUnderline
 
-hi! link LspDiagnosticsDefaultHint GruvboxAqua
-hi! link LspDiagnosticsSignHint GruvboxAquaSign
-hi! link LspDiagnosticsUnderlineHint GruvboxAquaUnderline
+hi! link LspDiagnosticsDefaultHint CakeAqua
+hi! link LspDiagnosticsSignHint CakeAquaSign
+hi! link LspDiagnosticsUnderlineHint CakeAquaUnderline
 
 " }}}
 
 " Treesitter: {{{
-hi! link TSKeywordOperator GruvboxRed
+hi! link TSKeywordOperator CakeRed
 
 " }}}
 
 " Plugin specific -------------------------------------------------------------
 " EasyMotion: {{{
 
-hi! link EasyMotionTarget GruvboxRedBold
-hi! link EasyMotionTarget2First GruvboxYellowBold
-hi! link EasyMotionTarget2Second GruvboxOrangeBold
-hi! link EasyMotionShade GruvboxGray
+hi! link EasyMotionTarget CakeRedBold
+hi! link EasyMotionTarget2First CakeYellowBold
+hi! link EasyMotionTarget2Second CakeOrangeBold
+hi! link EasyMotionShade CakeGray
 
 " }}}
 " Sneak: {{{
@@ -852,7 +852,7 @@ if !exists('g:indent_guides_auto_colors')
 endif
 
 if g:indent_guides_auto_colors == 0
-  if g:gruvbox_invert_indent_guides == 0
+  if g:cake_invert_indent_guides == 0
     call s:HL('IndentGuidesOdd', s:vim_bg, s:gb.bg2)
     call s:HL('IndentGuidesEven', s:vim_bg, s:gb.bg1)
   else
@@ -901,66 +901,66 @@ let g:niji_light_colours = g:rbpt_colorpairs
 "}}}
 " GitGutter: {{{
 
-hi! link GitGutterAdd GruvboxGreenSign
-hi! link GitGutterChange GruvboxAquaSign
-hi! link GitGutterDelete GruvboxRedSign
-hi! link GitGutterChangeDelete GruvboxAquaSign
+hi! link GitGutterAdd CakeGreenSign
+hi! link GitGutterChange CakeAquaSign
+hi! link GitGutterDelete CakeRedSign
+hi! link GitGutterChangeDelete CakeAquaSign
 
 " }}}
 " GitCommit: "{{{
 
-hi! link gitcommitSelectedFile GruvboxGreen
-hi! link gitcommitDiscardedFile GruvboxRed
+hi! link gitcommitSelectedFile CakeGreen
+hi! link gitcommitDiscardedFile CakeRed
 
 " }}}
 " Signify: {{{
 
-hi! link SignifySignAdd GruvboxGreenSign
-hi! link SignifySignChange GruvboxAquaSign
-hi! link SignifySignDelete GruvboxRedSign
+hi! link SignifySignAdd CakeGreenSign
+hi! link SignifySignChange CakeAquaSign
+hi! link SignifySignDelete CakeRedSign
 
 " }}}
 " gitsigns.nvim {{{
-hi! link GitSignsAdd GruvboxGreenSign
-hi! link GitSignsChange GruvboxAquaSign
-hi! link GitSignsDelete GruvboxRedSign
+hi! link GitSignsAdd CakeGreenSign
+hi! link GitSignsChange CakeAquaSign
+hi! link GitSignsDelete CakeRedSign
 " }}}
 " Syntastic: {{{
 
-hi! link SyntasticError GruvboxRedUnderline
-hi! link SyntasticWarning GruvboxYellowUnderline
+hi! link SyntasticError CakeRedUnderline
+hi! link SyntasticWarning CakeYellowUnderline
 
-hi! link SyntasticErrorSign GruvboxRedSign
-hi! link SyntasticWarningSign GruvboxYellowSign
+hi! link SyntasticErrorSign CakeRedSign
+hi! link SyntasticWarningSign CakeYellowSign
 
 " }}}
 " Termdebug: {{{
 
 call s:HL('debugPC', s:none, s:gb.faded_blue)
-hi! link debugBreakpoint GruvboxRedSign
+hi! link debugBreakpoint CakeRedSign
 
 " }}}
 
 " Signature: {{{
-hi! link SignatureMarkText   GruvboxBlueSign
-hi! link SignatureMarkerText GruvboxPurpleSign
+hi! link SignatureMarkText   CakeBlueSign
+hi! link SignatureMarkerText CakePurpleSign
 
 " }}}
 " ShowMarks: {{{
 
-hi! link ShowMarksHLl GruvboxBlueSign
-hi! link ShowMarksHLu GruvboxBlueSign
-hi! link ShowMarksHLo GruvboxBlueSign
-hi! link ShowMarksHLm GruvboxBlueSign
+hi! link ShowMarksHLl CakeBlueSign
+hi! link ShowMarksHLu CakeBlueSign
+hi! link ShowMarksHLo CakeBlueSign
+hi! link ShowMarksHLm CakeBlueSign
 
 " }}}
 " CtrlP: {{{
 
-hi! link CtrlPMatch GruvboxYellow
-hi! link CtrlPNoEntries GruvboxRed
-hi! link CtrlPPrtBase GruvboxBg2
-hi! link CtrlPPrtCursor GruvboxBlue
-hi! link CtrlPLinePre GruvboxBg2
+hi! link CtrlPMatch CakeYellow
+hi! link CtrlPNoEntries CakeRed
+hi! link CtrlPPrtBase CakeBg2
+hi! link CtrlPPrtCursor CakeBlue
+hi! link CtrlPLinePre CakeBg2
 
 call s:HL('CtrlPMode1', s:gb.blue, s:gb.bg2, s:bold)
 call s:HL('CtrlPMode2', s:gb.bg0, s:gb.blue, s:bold)
@@ -970,18 +970,18 @@ call s:HL('CtrlPStats', s:gb.fg4, s:gb.bg2, s:bold)
 " FZF: {{{
 
 let g:fzf_colors = {
-      \ 'fg':      ['fg', 'GruvboxFg1'],
-      \ 'bg':      ['fg', 'GruvboxBg0'],
-      \ 'hl':      ['fg', 'GruvboxYellow'],
-      \ 'fg+':     ['fg', 'GruvboxFg1'],
-      \ 'bg+':     ['fg', 'GruvboxBg1'],
-      \ 'hl+':     ['fg', 'GruvboxYellow'],
-      \ 'info':    ['fg', 'GruvboxBlue'],
-      \ 'prompt':  ['fg', 'GruvboxFg4'],
-      \ 'pointer': ['fg', 'GruvboxBlue'],
-      \ 'marker':  ['fg', 'GruvboxOrange'],
-      \ 'spinner': ['fg', 'GruvboxYellow'],
-      \ 'header':  ['fg', 'GruvboxBg3']
+      \ 'fg':      ['fg', 'CakeFg1'],
+      \ 'bg':      ['fg', 'CakeBg0'],
+      \ 'hl':      ['fg', 'CakeYellow'],
+      \ 'fg+':     ['fg', 'CakeFg1'],
+      \ 'bg+':     ['fg', 'CakeBg1'],
+      \ 'hl+':     ['fg', 'CakeYellow'],
+      \ 'info':    ['fg', 'CakeBlue'],
+      \ 'prompt':  ['fg', 'CakeFg4'],
+      \ 'pointer': ['fg', 'CakeBlue'],
+      \ 'marker':  ['fg', 'CakeOrange'],
+      \ 'spinner': ['fg', 'CakeYellow'],
+      \ 'header':  ['fg', 'CakeBg3']
       \ }
 
 call s:HL('Fzf1', s:gb.blue, s:gb.bg1)
@@ -991,15 +991,15 @@ call s:HL('Fzf3', s:gb.fg4, s:gb.bg1)
 " }}}
 " Startify: {{{
 
-hi! link StartifyBracket GruvboxFg3
-hi! link StartifyFile GruvboxFg1
-hi! link StartifyNumber GruvboxBlue
-hi! link StartifyPath GruvboxGray
-hi! link StartifySlash GruvboxGray
-hi! link StartifySection GruvboxYellow
-hi! link StartifySpecial GruvboxBg2
-hi! link StartifyHeader GruvboxOrange
-hi! link StartifyFooter GruvboxBg2
+hi! link StartifyBracket CakeFg3
+hi! link StartifyFile CakeFg1
+hi! link StartifyNumber CakeBlue
+hi! link StartifyPath CakeGray
+hi! link StartifySlash CakeGray
+hi! link StartifySection CakeYellow
+hi! link StartifySpecial CakeBg2
+hi! link StartifyHeader CakeOrange
+hi! link StartifyFooter CakeBg2
 
 " }}}
 " Vimshell: {{{
@@ -1022,56 +1022,56 @@ call s:HL('BufTabLineFill', s:gb.bg0, s:gb.bg0)
 " }}}
 " Asynchronous Lint Engine: {{{
 
-hi! link ALEError GruvboxRedUnderline
-hi! link ALEWarning GruvboxYellowUnderline
-hi! link ALEInfo GruvboxBlueUnderline
+hi! link ALEError CakeRedUnderline
+hi! link ALEWarning CakeYellowUnderline
+hi! link ALEInfo CakeBlueUnderline
 
-hi! link ALEErrorSign GruvboxRedSign
-hi! link ALEWarningSign GruvboxYellowSign
-hi! link ALEInfoSign GruvboxBlueSign
+hi! link ALEErrorSign CakeRedSign
+hi! link ALEWarningSign CakeYellowSign
+hi! link ALEInfoSign CakeBlueSign
 
-hi! link ALEVirtualTextError GruvboxRed
-hi! link ALEVirtualTextWarning GruvboxYellow
-hi! link ALEVirtualTextInfo GruvboxBlue
+hi! link ALEVirtualTextError CakeRed
+hi! link ALEVirtualTextWarning CakeYellow
+hi! link ALEVirtualTextInfo CakeBlue
 
 " }}}
 " Dirvish: {{{
 
-hi! link DirvishPathTail GruvboxAqua
-hi! link DirvishArg GruvboxYellow
+hi! link DirvishPathTail CakeAqua
+hi! link DirvishArg CakeYellow
 
 " }}}
 " Netrw: {{{
 
-hi! link netrwDir GruvboxAqua
-hi! link netrwClassify GruvboxAqua
-hi! link netrwLink GruvboxGray
-hi! link netrwSymLink GruvboxFg1
-hi! link netrwExe GruvboxYellow
-hi! link netrwComment GruvboxGray
-hi! link netrwList GruvboxBlue
-hi! link netrwHelpCmd GruvboxAqua
-hi! link netrwCmdSep GruvboxFg3
-hi! link netrwVersion GruvboxGreen
+hi! link netrwDir CakeAqua
+hi! link netrwClassify CakeAqua
+hi! link netrwLink CakeGray
+hi! link netrwSymLink CakeFg1
+hi! link netrwExe CakeYellow
+hi! link netrwComment CakeGray
+hi! link netrwList CakeBlue
+hi! link netrwHelpCmd CakeAqua
+hi! link netrwCmdSep CakeFg3
+hi! link netrwVersion CakeGreen
 
 " }}}
 " NERDTree: {{{
 
-hi! link NERDTreeDir GruvboxAqua
-hi! link NERDTreeDirSlash GruvboxAqua
+hi! link NERDTreeDir CakeAqua
+hi! link NERDTreeDirSlash CakeAqua
 
-hi! link NERDTreeOpenable GruvboxOrange
-hi! link NERDTreeClosable GruvboxOrange
+hi! link NERDTreeOpenable CakeOrange
+hi! link NERDTreeClosable CakeOrange
 
-hi! link NERDTreeFile GruvboxFg1
-hi! link NERDTreeExecFile GruvboxYellow
+hi! link NERDTreeFile CakeFg1
+hi! link NERDTreeExecFile CakeYellow
 
-hi! link NERDTreeUp GruvboxGray
-hi! link NERDTreeCWD GruvboxGreen
-hi! link NERDTreeHelp GruvboxFg1
+hi! link NERDTreeUp CakeGray
+hi! link NERDTreeCWD CakeGreen
+hi! link NERDTreeHelp CakeFg1
 
-hi! link NERDTreeToggleOn GruvboxGreen
-hi! link NERDTreeToggleOff GruvboxRed
+hi! link NERDTreeToggleOn CakeGreen
+hi! link NERDTreeToggleOff CakeRed
 
 " }}}
 " Vim Multiple Cursors: {{{
@@ -1082,39 +1082,39 @@ call s:HL('multiple_cursors_visual', s:none, s:gb.bg2)
 " }}}
 " coc.nvim: {{{
 
-hi! link CocErrorSign GruvboxRedSign
-hi! link CocWarningSign GruvboxOrangeSign
-hi! link CocInfoSign GruvboxBlueSign
-hi! link CocHintSign GruvboxAquaSign
-hi! link CocErrorFloat GruvboxRed
-hi! link CocWarningFloat GruvboxOrange
-hi! link CocInfoFloat GruvboxBlue
-hi! link CocHintFloat GruvboxAqua
-hi! link CocDiagnosticsError GruvboxRed
-hi! link CocDiagnosticsWarning GruvboxOrange
-hi! link CocDiagnosticsInfo GruvboxBlue
-hi! link CocDiagnosticsHint GruvboxAqua
+hi! link CocErrorSign CakeRedSign
+hi! link CocWarningSign CakeOrangeSign
+hi! link CocInfoSign CakeBlueSign
+hi! link CocHintSign CakeAquaSign
+hi! link CocErrorFloat CakeRed
+hi! link CocWarningFloat CakeOrange
+hi! link CocInfoFloat CakeBlue
+hi! link CocHintFloat CakeAqua
+hi! link CocDiagnosticsError CakeRed
+hi! link CocDiagnosticsWarning CakeOrange
+hi! link CocDiagnosticsInfo CakeBlue
+hi! link CocDiagnosticsHint CakeAqua
 
-hi! link CocSelectedText GruvboxRed
-hi! link CocCodeLens GruvboxGray
+hi! link CocSelectedText CakeRed
+hi! link CocCodeLens CakeGray
 
-hi! link CocErrorHighlight GruvboxRedUnderline
-hi! link CocWarningHighlight GruvboxOrangeUnderline
-hi! link CocInfoHighlight GruvboxBlueUnderline
-hi! link CocHintHighlight GruvboxAquaUnderline
+hi! link CocErrorHighlight CakeRedUnderline
+hi! link CocWarningHighlight CakeOrangeUnderline
+hi! link CocInfoHighlight CakeBlueUnderline
+hi! link CocHintHighlight CakeAquaUnderline
 
 " }}}
 " Telescope.nvim: {{{
-hi! link TelescopeNormal GruvboxFg1
-hi! link TelescopeSelection GruvboxOrangeBold
-hi! link TelescopeSlectionCaret GruvboxRed
-hi! link TelescopeMultiSelection GruvboxGray
+hi! link TelescopeNormal CakeFg1
+hi! link TelescopeSelection CakeOrangeBold
+hi! link TelescopeSlectionCaret CakeRed
+hi! link TelescopeMultiSelection CakeGray
 hi! link TelescopeBorder TelescopeNormal
 hi! link TelescopePromptBorder TelescopeNormal
 hi! link TelescopeResultsBorder TelescopeNormal
 hi! link TelescopePreviewBorder TelescopeNormal
-hi! link TelescopeMatching GruvboxBlue
-hi! link TelescopePromptPrefix GruvboxRed
+hi! link TelescopeMatching CakeBlue
+hi! link TelescopePromptPrefix CakeRed
 hi! link TelescopePrompt TelescopeNormal
 
 " }}}
@@ -1122,30 +1122,30 @@ hi! link TelescopePrompt TelescopeNormal
 " Filetype specific -----------------------------------------------------------
 " Diff: {{{
 
-hi! link diffAdded GruvboxGreen
-hi! link diffRemoved GruvboxRed
-hi! link diffChanged GruvboxAqua
+hi! link diffAdded CakeGreen
+hi! link diffRemoved CakeRed
+hi! link diffChanged CakeAqua
 
-hi! link diffFile GruvboxOrange
-hi! link diffNewFile GruvboxYellow
+hi! link diffFile CakeOrange
+hi! link diffNewFile CakeYellow
 
-hi! link diffLine GruvboxBlue
+hi! link diffLine CakeBlue
 
 " }}}
 " Html: {{{
 
-hi! link htmlTag GruvboxAquaBold
-hi! link htmlEndTag GruvboxAquaBold
+hi! link htmlTag CakeAquaBold
+hi! link htmlEndTag CakeAquaBold
 
-hi! link htmlTagName GruvboxBlue
-hi! link htmlArg GruvboxOrange
+hi! link htmlTagName CakeBlue
+hi! link htmlArg CakeOrange
 
-hi! link htmlTagN GruvboxFg1
-hi! link htmlSpecialTagName GruvboxBlue
+hi! link htmlTagN CakeFg1
+hi! link htmlSpecialTagName CakeBlue
 
 call s:HL('htmlLink', s:gb.fg4, s:none, s:underline)
 
-hi! link htmlSpecialChar GruvboxRed
+hi! link htmlSpecialChar CakeRed
 
 call s:HL('htmlBold', s:vim_fg, s:vim_bg, s:bold)
 call s:HL('htmlBoldUnderline', s:vim_fg, s:vim_bg, s:bold . s:underline)
@@ -1159,387 +1159,387 @@ call s:HL('htmlItalic', s:vim_fg, s:vim_bg, s:italic)
 " }}}
 " Xml: {{{
 
-hi! link xmlTag GruvboxAquaBold
-hi! link xmlEndTag GruvboxAquaBold
-hi! link xmlTagName GruvboxBlue
-hi! link xmlEqual GruvboxBlue
-hi! link docbkKeyword GruvboxAquaBold
+hi! link xmlTag CakeAquaBold
+hi! link xmlEndTag CakeAquaBold
+hi! link xmlTagName CakeBlue
+hi! link xmlEqual CakeBlue
+hi! link docbkKeyword CakeAquaBold
 
-hi! link xmlDocTypeDecl GruvboxGray
-hi! link xmlDocTypeKeyword GruvboxPurple
-hi! link xmlCdataStart GruvboxGray
-hi! link xmlCdataCdata GruvboxPurple
-hi! link dtdFunction GruvboxGray
-hi! link dtdTagName GruvboxPurple
+hi! link xmlDocTypeDecl CakeGray
+hi! link xmlDocTypeKeyword CakePurple
+hi! link xmlCdataStart CakeGray
+hi! link xmlCdataCdata CakePurple
+hi! link dtdFunction CakeGray
+hi! link dtdTagName CakePurple
 
-hi! link xmlAttrib GruvboxOrange
-hi! link xmlProcessingDelim GruvboxGray
-hi! link dtdParamEntityPunct GruvboxGray
-hi! link dtdParamEntityDPunct GruvboxGray
-hi! link xmlAttribPunct GruvboxGray
+hi! link xmlAttrib CakeOrange
+hi! link xmlProcessingDelim CakeGray
+hi! link dtdParamEntityPunct CakeGray
+hi! link dtdParamEntityDPunct CakeGray
+hi! link xmlAttribPunct CakeGray
 
-hi! link xmlEntity GruvboxRed
-hi! link xmlEntityPunct GruvboxRed
+hi! link xmlEntity CakeRed
+hi! link xmlEntityPunct CakeRed
 " }}}
 " Vim: {{{
 
 call s:HL('vimCommentTitle', s:gb.fg4_256, s:none, s:bold . s:italicize_comments)
 
-hi! link vimNotation GruvboxOrange
-hi! link vimBracket GruvboxOrange
-hi! link vimMapModKey GruvboxOrange
-hi! link vimFuncSID GruvboxFg3
-hi! link vimSetSep GruvboxFg3
-hi! link vimSep GruvboxFg3
-hi! link vimContinue GruvboxFg3
+hi! link vimNotation CakeOrange
+hi! link vimBracket CakeOrange
+hi! link vimMapModKey CakeOrange
+hi! link vimFuncSID CakeFg3
+hi! link vimSetSep CakeFg3
+hi! link vimSep CakeFg3
+hi! link vimContinue CakeFg3
 
 " }}}
 " Clojure: {{{
 
-hi! link clojureKeyword GruvboxBlue
-hi! link clojureCond GruvboxOrange
-hi! link clojureSpecial GruvboxOrange
-hi! link clojureDefine GruvboxOrange
+hi! link clojureKeyword CakeBlue
+hi! link clojureCond CakeOrange
+hi! link clojureSpecial CakeOrange
+hi! link clojureDefine CakeOrange
 
-hi! link clojureFunc GruvboxYellow
-hi! link clojureRepeat GruvboxYellow
-hi! link clojureCharacter GruvboxAqua
-hi! link clojureStringEscape GruvboxAqua
-hi! link clojureException GruvboxRed
+hi! link clojureFunc CakeYellow
+hi! link clojureRepeat CakeYellow
+hi! link clojureCharacter CakeAqua
+hi! link clojureStringEscape CakeAqua
+hi! link clojureException CakeRed
 
-hi! link clojureRegexp GruvboxAqua
-hi! link clojureRegexpEscape GruvboxAqua
+hi! link clojureRegexp CakeAqua
+hi! link clojureRegexpEscape CakeAqua
 call s:HL('clojureRegexpCharClass', s:gb.fg3, s:none, s:bold)
 hi! link clojureRegexpMod clojureRegexpCharClass
 hi! link clojureRegexpQuantifier clojureRegexpCharClass
 
-hi! link clojureParen GruvboxFg3
-hi! link clojureAnonArg GruvboxYellow
-hi! link clojureVariable GruvboxBlue
-hi! link clojureMacro GruvboxOrange
+hi! link clojureParen CakeFg3
+hi! link clojureAnonArg CakeYellow
+hi! link clojureVariable CakeBlue
+hi! link clojureMacro CakeOrange
 
-hi! link clojureMeta GruvboxYellow
-hi! link clojureDeref GruvboxYellow
-hi! link clojureQuote GruvboxYellow
-hi! link clojureUnquote GruvboxYellow
+hi! link clojureMeta CakeYellow
+hi! link clojureDeref CakeYellow
+hi! link clojureQuote CakeYellow
+hi! link clojureUnquote CakeYellow
 
 " }}}
 " C: {{{
 
-hi! link cOperator GruvboxPurple
-hi! link cppOperator GruvboxPurple
-hi! link cStructure GruvboxOrange
+hi! link cOperator CakePurple
+hi! link cppOperator CakePurple
+hi! link cStructure CakeOrange
 
 " }}}
 " Python: {{{
 
-hi! link pythonBuiltin GruvboxOrange
-hi! link pythonBuiltinObj GruvboxOrange
-hi! link pythonBuiltinFunc GruvboxOrange
-hi! link pythonFunction GruvboxAqua
-hi! link pythonDecorator GruvboxRed
-hi! link pythonInclude GruvboxBlue
-hi! link pythonImport GruvboxBlue
-hi! link pythonRun GruvboxBlue
-hi! link pythonCoding GruvboxBlue
-hi! link pythonOperator GruvboxRed
-hi! link pythonException GruvboxRed
-hi! link pythonExceptions GruvboxPurple
-hi! link pythonBoolean GruvboxPurple
-hi! link pythonDot GruvboxFg3
-hi! link pythonConditional GruvboxRed
-hi! link pythonRepeat GruvboxRed
-hi! link pythonDottedName GruvboxGreenBold
+hi! link pythonBuiltin CakeOrange
+hi! link pythonBuiltinObj CakeOrange
+hi! link pythonBuiltinFunc CakeOrange
+hi! link pythonFunction CakeAqua
+hi! link pythonDecorator CakeRed
+hi! link pythonInclude CakeBlue
+hi! link pythonImport CakeBlue
+hi! link pythonRun CakeBlue
+hi! link pythonCoding CakeBlue
+hi! link pythonOperator CakeRed
+hi! link pythonException CakeRed
+hi! link pythonExceptions CakePurple
+hi! link pythonBoolean CakePurple
+hi! link pythonDot CakeFg3
+hi! link pythonConditional CakeRed
+hi! link pythonRepeat CakeRed
+hi! link pythonDottedName CakeGreenBold
 
 " }}}
 " CSS: {{{
 
-hi! link cssBraces GruvboxBlue
-hi! link cssFunctionName GruvboxYellow
-hi! link cssIdentifier GruvboxOrange
-hi! link cssClassName GruvboxGreen
-hi! link cssColor GruvboxBlue
-hi! link cssSelectorOp GruvboxBlue
-hi! link cssSelectorOp2 GruvboxBlue
-hi! link cssImportant GruvboxGreen
-hi! link cssVendor GruvboxFg1
+hi! link cssBraces CakeBlue
+hi! link cssFunctionName CakeYellow
+hi! link cssIdentifier CakeOrange
+hi! link cssClassName CakeGreen
+hi! link cssColor CakeBlue
+hi! link cssSelectorOp CakeBlue
+hi! link cssSelectorOp2 CakeBlue
+hi! link cssImportant CakeGreen
+hi! link cssVendor CakeFg1
 
-hi! link cssTextProp GruvboxAqua
-hi! link cssAnimationProp GruvboxAqua
-hi! link cssUIProp GruvboxYellow
-hi! link cssTransformProp GruvboxAqua
-hi! link cssTransitionProp GruvboxAqua
-hi! link cssPrintProp GruvboxAqua
-hi! link cssPositioningProp GruvboxYellow
-hi! link cssBoxProp GruvboxAqua
-hi! link cssFontDescriptorProp GruvboxAqua
-hi! link cssFlexibleBoxProp GruvboxAqua
-hi! link cssBorderOutlineProp GruvboxAqua
-hi! link cssBackgroundProp GruvboxAqua
-hi! link cssMarginProp GruvboxAqua
-hi! link cssListProp GruvboxAqua
-hi! link cssTableProp GruvboxAqua
-hi! link cssFontProp GruvboxAqua
-hi! link cssPaddingProp GruvboxAqua
-hi! link cssDimensionProp GruvboxAqua
-hi! link cssRenderProp GruvboxAqua
-hi! link cssColorProp GruvboxAqua
-hi! link cssGeneratedContentProp GruvboxAqua
+hi! link cssTextProp CakeAqua
+hi! link cssAnimationProp CakeAqua
+hi! link cssUIProp CakeYellow
+hi! link cssTransformProp CakeAqua
+hi! link cssTransitionProp CakeAqua
+hi! link cssPrintProp CakeAqua
+hi! link cssPositioningProp CakeYellow
+hi! link cssBoxProp CakeAqua
+hi! link cssFontDescriptorProp CakeAqua
+hi! link cssFlexibleBoxProp CakeAqua
+hi! link cssBorderOutlineProp CakeAqua
+hi! link cssBackgroundProp CakeAqua
+hi! link cssMarginProp CakeAqua
+hi! link cssListProp CakeAqua
+hi! link cssTableProp CakeAqua
+hi! link cssFontProp CakeAqua
+hi! link cssPaddingProp CakeAqua
+hi! link cssDimensionProp CakeAqua
+hi! link cssRenderProp CakeAqua
+hi! link cssColorProp CakeAqua
+hi! link cssGeneratedContentProp CakeAqua
 
 " }}}
 " JavaScript: {{{
 
-hi! link javaScriptBraces GruvboxFg1
-hi! link javaScriptFunction GruvboxAqua
-hi! link javaScriptIdentifier GruvboxRed
-hi! link javaScriptMember GruvboxBlue
-hi! link javaScriptNumber GruvboxPurple
-hi! link javaScriptNull GruvboxPurple
-hi! link javaScriptParens GruvboxFg3
+hi! link javaScriptBraces CakeFg1
+hi! link javaScriptFunction CakeAqua
+hi! link javaScriptIdentifier CakeRed
+hi! link javaScriptMember CakeBlue
+hi! link javaScriptNumber CakePurple
+hi! link javaScriptNull CakePurple
+hi! link javaScriptParens CakeFg3
 
 " }}}
 " YAJS: {{{
 
-hi! link javascriptImport GruvboxAqua
-hi! link javascriptExport GruvboxAqua
-hi! link javascriptClassKeyword GruvboxAqua
-hi! link javascriptClassExtends GruvboxAqua
-hi! link javascriptDefault GruvboxAqua
+hi! link javascriptImport CakeAqua
+hi! link javascriptExport CakeAqua
+hi! link javascriptClassKeyword CakeAqua
+hi! link javascriptClassExtends CakeAqua
+hi! link javascriptDefault CakeAqua
 
-hi! link javascriptClassName GruvboxYellow
-hi! link javascriptClassSuperName GruvboxYellow
-hi! link javascriptGlobal GruvboxYellow
+hi! link javascriptClassName CakeYellow
+hi! link javascriptClassSuperName CakeYellow
+hi! link javascriptGlobal CakeYellow
 
-hi! link javascriptEndColons GruvboxFg1
-hi! link javascriptFuncArg GruvboxFg1
-hi! link javascriptGlobalMethod GruvboxFg1
-hi! link javascriptNodeGlobal GruvboxFg1
-hi! link javascriptBOMWindowProp GruvboxFg1
-hi! link javascriptArrayMethod GruvboxFg1
-hi! link javascriptArrayStaticMethod GruvboxFg1
-hi! link javascriptCacheMethod GruvboxFg1
-hi! link javascriptDateMethod GruvboxFg1
-hi! link javascriptMathStaticMethod GruvboxFg1
+hi! link javascriptEndColons CakeFg1
+hi! link javascriptFuncArg CakeFg1
+hi! link javascriptGlobalMethod CakeFg1
+hi! link javascriptNodeGlobal CakeFg1
+hi! link javascriptBOMWindowProp CakeFg1
+hi! link javascriptArrayMethod CakeFg1
+hi! link javascriptArrayStaticMethod CakeFg1
+hi! link javascriptCacheMethod CakeFg1
+hi! link javascriptDateMethod CakeFg1
+hi! link javascriptMathStaticMethod CakeFg1
 
-" hi! link javascriptProp GruvboxFg1
-hi! link javascriptURLUtilsProp GruvboxFg1
-hi! link javascriptBOMNavigatorProp GruvboxFg1
-hi! link javascriptDOMDocMethod GruvboxFg1
-hi! link javascriptDOMDocProp GruvboxFg1
-hi! link javascriptBOMLocationMethod GruvboxFg1
-hi! link javascriptBOMWindowMethod GruvboxFg1
-hi! link javascriptStringMethod GruvboxFg1
+" hi! link javascriptProp CakeFg1
+hi! link javascriptURLUtilsProp CakeFg1
+hi! link javascriptBOMNavigatorProp CakeFg1
+hi! link javascriptDOMDocMethod CakeFg1
+hi! link javascriptDOMDocProp CakeFg1
+hi! link javascriptBOMLocationMethod CakeFg1
+hi! link javascriptBOMWindowMethod CakeFg1
+hi! link javascriptStringMethod CakeFg1
 
-hi! link javascriptVariable GruvboxOrange
-" hi! link javascriptVariable GruvboxRed
-" hi! link javascriptIdentifier GruvboxOrange
-" hi! link javascriptClassSuper GruvboxOrange
-hi! link javascriptIdentifier GruvboxOrange
-hi! link javascriptClassSuper GruvboxOrange
+hi! link javascriptVariable CakeOrange
+" hi! link javascriptVariable CakeRed
+" hi! link javascriptIdentifier CakeOrange
+" hi! link javascriptClassSuper CakeOrange
+hi! link javascriptIdentifier CakeOrange
+hi! link javascriptClassSuper CakeOrange
 
-" hi! link javascriptFuncKeyword GruvboxOrange
-" hi! link javascriptAsyncFunc GruvboxOrange
-hi! link javascriptFuncKeyword GruvboxAqua
-hi! link javascriptAsyncFunc GruvboxAqua
-hi! link javascriptClassStatic GruvboxOrange
+" hi! link javascriptFuncKeyword CakeOrange
+" hi! link javascriptAsyncFunc CakeOrange
+hi! link javascriptFuncKeyword CakeAqua
+hi! link javascriptAsyncFunc CakeAqua
+hi! link javascriptClassStatic CakeOrange
 
-hi! link javascriptOperator GruvboxRed
-hi! link javascriptForOperator GruvboxRed
-hi! link javascriptYield GruvboxRed
-hi! link javascriptExceptions GruvboxRed
-hi! link javascriptMessage GruvboxRed
+hi! link javascriptOperator CakeRed
+hi! link javascriptForOperator CakeRed
+hi! link javascriptYield CakeRed
+hi! link javascriptExceptions CakeRed
+hi! link javascriptMessage CakeRed
 
-hi! link javascriptTemplateSB GruvboxAqua
-hi! link javascriptTemplateSubstitution GruvboxFg1
+hi! link javascriptTemplateSB CakeAqua
+hi! link javascriptTemplateSubstitution CakeFg1
 
-" hi! link javascriptLabel GruvboxBlue
-" hi! link javascriptObjectLabel GruvboxBlue
-" hi! link javascriptPropertyName GruvboxBlue
-hi! link javascriptLabel GruvboxFg1
-hi! link javascriptObjectLabel GruvboxFg1
-hi! link javascriptPropertyName GruvboxFg1
+" hi! link javascriptLabel CakeBlue
+" hi! link javascriptObjectLabel CakeBlue
+" hi! link javascriptPropertyName CakeBlue
+hi! link javascriptLabel CakeFg1
+hi! link javascriptObjectLabel CakeFg1
+hi! link javascriptPropertyName CakeFg1
 
-hi! link javascriptLogicSymbols GruvboxFg1
-hi! link javascriptArrowFunc GruvboxYellow
+hi! link javascriptLogicSymbols CakeFg1
+hi! link javascriptArrowFunc CakeYellow
 
-hi! link javascriptDocParamName GruvboxFg4
-hi! link javascriptDocTags GruvboxFg4
-hi! link javascriptDocNotation GruvboxFg4
-hi! link javascriptDocParamType GruvboxFg4
-hi! link javascriptDocNamedParamType GruvboxFg4
+hi! link javascriptDocParamName CakeFg4
+hi! link javascriptDocTags CakeFg4
+hi! link javascriptDocNotation CakeFg4
+hi! link javascriptDocParamType CakeFg4
+hi! link javascriptDocNamedParamType CakeFg4
 
-hi! link javascriptBrackets GruvboxFg1
-hi! link javascriptDOMElemAttrs GruvboxFg1
-hi! link javascriptDOMEventMethod GruvboxFg1
-hi! link javascriptDOMNodeMethod GruvboxFg1
-hi! link javascriptDOMStorageMethod GruvboxFg1
-hi! link javascriptHeadersMethod GruvboxFg1
+hi! link javascriptBrackets CakeFg1
+hi! link javascriptDOMElemAttrs CakeFg1
+hi! link javascriptDOMEventMethod CakeFg1
+hi! link javascriptDOMNodeMethod CakeFg1
+hi! link javascriptDOMStorageMethod CakeFg1
+hi! link javascriptHeadersMethod CakeFg1
 
-hi! link javascriptAsyncFuncKeyword GruvboxRed
-hi! link javascriptAwaitFuncKeyword GruvboxRed
+hi! link javascriptAsyncFuncKeyword CakeRed
+hi! link javascriptAwaitFuncKeyword CakeRed
 
 " }}}
 " PanglossJS: {{{
 
-hi! link jsClassKeyword GruvboxAqua
-hi! link jsExtendsKeyword GruvboxAqua
-hi! link jsExportDefault GruvboxAqua
-hi! link jsTemplateBraces GruvboxAqua
-hi! link jsGlobalNodeObjects GruvboxBlue
-hi! link jsGlobalObjects GruvboxBlue
-hi! link jsObjectKey GruvboxGreenBold
-hi! link jsFunction GruvboxAqua
-hi! link jsFuncCall GruvboxBlue
-hi! link jsFuncParens GruvboxFg3
-hi! link jsParens GruvboxFg3
-hi! link jsNull GruvboxPurple
-hi! link jsUndefined GruvboxPurple
-hi! link jsClassDefinition GruvboxYellow
-hi! link jsOperatorKeyword GruvboxRed
+hi! link jsClassKeyword CakeAqua
+hi! link jsExtendsKeyword CakeAqua
+hi! link jsExportDefault CakeAqua
+hi! link jsTemplateBraces CakeAqua
+hi! link jsGlobalNodeObjects CakeBlue
+hi! link jsGlobalObjects CakeBlue
+hi! link jsObjectKey CakeGreenBold
+hi! link jsFunction CakeAqua
+hi! link jsFuncCall CakeBlue
+hi! link jsFuncParens CakeFg3
+hi! link jsParens CakeFg3
+hi! link jsNull CakePurple
+hi! link jsUndefined CakePurple
+hi! link jsClassDefinition CakeYellow
+hi! link jsOperatorKeyword CakeRed
 
 " }}}
 " TypeScript: {{{
 
-hi! link typescriptReserved GruvboxAqua
-hi! link typescriptLabel GruvboxAqua
-hi! link typescriptFuncKeyword GruvboxAqua
-hi! link typescriptIdentifier GruvboxOrange
-hi! link typescriptBraces GruvboxFg1
-hi! link typescriptEndColons GruvboxFg1
-hi! link typescriptDOMObjects GruvboxFg1
-hi! link typescriptAjaxMethods GruvboxFg1
-hi! link typescriptLogicSymbols GruvboxFg1
+hi! link typescriptReserved CakeAqua
+hi! link typescriptLabel CakeAqua
+hi! link typescriptFuncKeyword CakeAqua
+hi! link typescriptIdentifier CakeOrange
+hi! link typescriptBraces CakeFg1
+hi! link typescriptEndColons CakeFg1
+hi! link typescriptDOMObjects CakeFg1
+hi! link typescriptAjaxMethods CakeFg1
+hi! link typescriptLogicSymbols CakeFg1
 hi! link typescriptDocSeeTag Comment
 hi! link typescriptDocParam Comment
 hi! link typescriptDocTags vimCommentTitle
-hi! link typescriptGlobalObjects GruvboxFg1
-hi! link typescriptParens GruvboxFg3
-hi! link typescriptOpSymbols GruvboxFg3
-hi! link typescriptHtmlElemProperties GruvboxFg1
-hi! link typescriptNull GruvboxPurple
-hi! link typescriptInterpolationDelimiter GruvboxAqua
+hi! link typescriptGlobalObjects CakeFg1
+hi! link typescriptParens CakeFg3
+hi! link typescriptOpSymbols CakeFg3
+hi! link typescriptHtmlElemProperties CakeFg1
+hi! link typescriptNull CakePurple
+hi! link typescriptInterpolationDelimiter CakeAqua
 
 " }}}
 " JSX: maxmellon/vim-jsx-pretty: {{{
 
-hi! link jsxTagName GruvboxAqua
-hi! link jsxComponentName GruvboxGreen
-hi! link jsxCloseString GruvboxFg4
-hi! link jsxAttrib GruvboxYellow
-hi! link jsxEqual GruvboxAqua
+hi! link jsxTagName CakeAqua
+hi! link jsxComponentName CakeGreen
+hi! link jsxCloseString CakeFg4
+hi! link jsxAttrib CakeYellow
+hi! link jsxEqual CakeAqua
 
 "}}}
 " PureScript: {{{
 
-hi! link purescriptModuleKeyword GruvboxAqua
-hi! link purescriptModuleName GruvboxFg1
-hi! link purescriptWhere GruvboxAqua
-hi! link purescriptDelimiter GruvboxFg4
-hi! link purescriptType GruvboxFg1
-hi! link purescriptImportKeyword GruvboxAqua
-hi! link purescriptHidingKeyword GruvboxAqua
-hi! link purescriptAsKeyword GruvboxAqua
-hi! link purescriptStructure GruvboxAqua
-hi! link purescriptOperator GruvboxBlue
+hi! link purescriptModuleKeyword CakeAqua
+hi! link purescriptModuleName CakeFg1
+hi! link purescriptWhere CakeAqua
+hi! link purescriptDelimiter CakeFg4
+hi! link purescriptType CakeFg1
+hi! link purescriptImportKeyword CakeAqua
+hi! link purescriptHidingKeyword CakeAqua
+hi! link purescriptAsKeyword CakeAqua
+hi! link purescriptStructure CakeAqua
+hi! link purescriptOperator CakeBlue
 
-hi! link purescriptTypeVar GruvboxFg1
-hi! link purescriptConstructor GruvboxFg1
-hi! link purescriptFunction GruvboxFg1
-hi! link purescriptConditional GruvboxOrange
-hi! link purescriptBacktick GruvboxOrange
+hi! link purescriptTypeVar CakeFg1
+hi! link purescriptConstructor CakeFg1
+hi! link purescriptFunction CakeFg1
+hi! link purescriptConditional CakeOrange
+hi! link purescriptBacktick CakeOrange
 
 " }}}
 " CoffeeScript: {{{
 
-hi! link coffeeExtendedOp GruvboxFg3
-hi! link coffeeSpecialOp GruvboxFg3
-hi! link coffeeCurly GruvboxOrange
-hi! link coffeeParen GruvboxFg3
-hi! link coffeeBracket GruvboxOrange
+hi! link coffeeExtendedOp CakeFg3
+hi! link coffeeSpecialOp CakeFg3
+hi! link coffeeCurly CakeOrange
+hi! link coffeeParen CakeFg3
+hi! link coffeeBracket CakeOrange
 
 " }}}
 " Ruby: {{{
 
-hi! link rubyStringDelimiter GruvboxGreen
-hi! link rubyInterpolationDelimiter GruvboxAqua
+hi! link rubyStringDelimiter CakeGreen
+hi! link rubyInterpolationDelimiter CakeAqua
 hi! link rubyDefinedOperator rubyKeyword
 
 " }}}
 " ObjectiveC: {{{
 
-hi! link objcTypeModifier GruvboxRed
-hi! link objcDirective GruvboxBlue
+hi! link objcTypeModifier CakeRed
+hi! link objcDirective CakeBlue
 
 " }}}
 " Go: {{{
 
-hi! link goDirective GruvboxAqua
-hi! link goConstants GruvboxPurple
-hi! link goDeclaration GruvboxRed
-hi! link goDeclType GruvboxBlue
-hi! link goBuiltins GruvboxOrange
+hi! link goDirective CakeAqua
+hi! link goConstants CakePurple
+hi! link goDeclaration CakeRed
+hi! link goDeclType CakeBlue
+hi! link goBuiltins CakeOrange
 
 " }}}
 " Lua: {{{
 
-hi! link luaIn GruvboxRed
-hi! link luaFunction GruvboxAqua
-hi! link luaTable GruvboxOrange
+hi! link luaIn CakeRed
+hi! link luaFunction CakeAqua
+hi! link luaTable CakeOrange
 
 " }}}
 " MoonScript: {{{
 
-hi! link moonSpecialOp GruvboxFg3
-hi! link moonExtendedOp GruvboxFg3
-hi! link moonFunction GruvboxFg3
-hi! link moonObject GruvboxYellow
+hi! link moonSpecialOp CakeFg3
+hi! link moonExtendedOp CakeFg3
+hi! link moonFunction CakeFg3
+hi! link moonObject CakeYellow
 
 " }}}
 " Java: {{{
 
-hi! link javaAnnotation GruvboxBlue
-hi! link javaDocTags GruvboxAqua
+hi! link javaAnnotation CakeBlue
+hi! link javaDocTags CakeAqua
 hi! link javaCommentTitle vimCommentTitle
-hi! link javaParen GruvboxFg3
-hi! link javaParen1 GruvboxFg3
-hi! link javaParen2 GruvboxFg3
-hi! link javaParen3 GruvboxFg3
-hi! link javaParen4 GruvboxFg3
-hi! link javaParen5 GruvboxFg3
-hi! link javaOperator GruvboxOrange
+hi! link javaParen CakeFg3
+hi! link javaParen1 CakeFg3
+hi! link javaParen2 CakeFg3
+hi! link javaParen3 CakeFg3
+hi! link javaParen4 CakeFg3
+hi! link javaParen5 CakeFg3
+hi! link javaOperator CakeOrange
 
-hi! link javaVarArg GruvboxGreen
+hi! link javaVarArg CakeGreen
 
 " }}}
 " Elixir: {{{
 
 hi! link elixirDocString Comment
 
-hi! link elixirStringDelimiter GruvboxGreen
-hi! link elixirInterpolationDelimiter GruvboxAqua
+hi! link elixirStringDelimiter CakeGreen
+hi! link elixirInterpolationDelimiter CakeAqua
 
-hi! link elixirModuleDeclaration GruvboxYellow
+hi! link elixirModuleDeclaration CakeYellow
 
 " }}}
 " Scala: {{{
 
 " NB: scala vim syntax file is kinda horrible
-hi! link scalaNameDefinition GruvboxFg1
-hi! link scalaCaseFollowing GruvboxFg1
-hi! link scalaCapitalWord GruvboxFg1
-hi! link scalaTypeExtension GruvboxFg1
+hi! link scalaNameDefinition CakeFg1
+hi! link scalaCaseFollowing CakeFg1
+hi! link scalaCapitalWord CakeFg1
+hi! link scalaTypeExtension CakeFg1
 
-hi! link scalaKeyword GruvboxRed
-hi! link scalaKeywordModifier GruvboxRed
+hi! link scalaKeyword CakeRed
+hi! link scalaKeywordModifier CakeRed
 
-hi! link scalaSpecial GruvboxAqua
-hi! link scalaOperator GruvboxFg1
+hi! link scalaSpecial CakeAqua
+hi! link scalaOperator CakeFg1
 
-hi! link scalaTypeDeclaration GruvboxYellow
-hi! link scalaTypeTypePostDeclaration GruvboxYellow
+hi! link scalaTypeDeclaration CakeYellow
+hi! link scalaTypeTypePostDeclaration CakeYellow
 
-hi! link scalaInstanceDeclaration GruvboxFg1
-hi! link scalaInterpolation GruvboxAqua
+hi! link scalaInstanceDeclaration CakeFg1
+hi! link scalaInterpolation CakeAqua
 
 " }}}
 " Markdown: {{{
@@ -1548,30 +1548,30 @@ call s:HL('markdownItalic', s:fg3, s:none, s:italic)
 call s:HL('markdownBold', s:fg3, s:none, s:bold)
 call s:HL('markdownBoldItalic', s:fg3, s:none, s:bold . s:italic)
 
-hi! link markdownH1 GruvboxGreenBold
-hi! link markdownH2 GruvboxGreenBold
-hi! link markdownH3 GruvboxYellowBold
-hi! link markdownH4 GruvboxYellowBold
-hi! link markdownH5 GruvboxYellow
-hi! link markdownH6 GruvboxYellow
+hi! link markdownH1 CakeGreenBold
+hi! link markdownH2 CakeGreenBold
+hi! link markdownH3 CakeYellowBold
+hi! link markdownH4 CakeYellowBold
+hi! link markdownH5 CakeYellow
+hi! link markdownH6 CakeYellow
 
-hi! link markdownCode GruvboxAqua
-hi! link markdownCodeBlock GruvboxAqua
-hi! link markdownCodeDelimiter GruvboxAqua
+hi! link markdownCode CakeAqua
+hi! link markdownCodeBlock CakeAqua
+hi! link markdownCodeDelimiter CakeAqua
 
-hi! link markdownBlockquote GruvboxGray
-hi! link markdownListMarker GruvboxGray
-hi! link markdownOrderedListMarker GruvboxGray
-hi! link markdownRule GruvboxGray
-hi! link markdownHeadingRule GruvboxGray
+hi! link markdownBlockquote CakeGray
+hi! link markdownListMarker CakeGray
+hi! link markdownOrderedListMarker CakeGray
+hi! link markdownRule CakeGray
+hi! link markdownHeadingRule CakeGray
 
-hi! link markdownUrlDelimiter GruvboxFg3
-hi! link markdownLinkDelimiter GruvboxFg3
-hi! link markdownLinkTextDelimiter GruvboxFg3
+hi! link markdownUrlDelimiter CakeFg3
+hi! link markdownLinkDelimiter CakeFg3
+hi! link markdownLinkTextDelimiter CakeFg3
 
-hi! link markdownHeadingDelimiter GruvboxOrange
-hi! link markdownUrl GruvboxPurple
-hi! link markdownUrlTitleDelimiter GruvboxGreen
+hi! link markdownHeadingDelimiter CakeOrange
+hi! link markdownUrl CakePurple
+hi! link markdownUrlTitleDelimiter CakeGreen
 
 call s:HL('markdownLinkText', s:gray, s:none, s:underline)
 hi! link markdownIdDeclaration markdownLinkText
@@ -1579,52 +1579,52 @@ hi! link markdownIdDeclaration markdownLinkText
 " }}}
 " Haskell: {{{
 
-hi! link haskellType GruvboxBlue
-hi! link haskellIdentifier GruvboxAqua
-hi! link haskellSeparator GruvboxFg4
-hi! link haskellDelimiter GruvboxOrange
-hi! link haskellOperators GruvboxPurple
+hi! link haskellType CakeBlue
+hi! link haskellIdentifier CakeAqua
+hi! link haskellSeparator CakeFg4
+hi! link haskellDelimiter CakeOrange
+hi! link haskellOperators CakePurple
 
-hi! link haskellBacktick GruvboxOrange
-hi! link haskellStatement GruvboxPurple
-hi! link haskellConditional GruvboxPurple
+hi! link haskellBacktick CakeOrange
+hi! link haskellStatement CakePurple
+hi! link haskellConditional CakePurple
 
-hi! link haskellLet GruvboxRed
-hi! link haskellDefault GruvboxRed
-hi! link haskellWhere GruvboxRed
-hi! link haskellBottom GruvboxRedBold
-hi! link haskellImportKeywords GruvboxPurpleBold
-hi! link haskellDeclKeyword GruvboxOrange
-hi! link haskellDecl GruvboxOrange
-hi! link haskellDeriving GruvboxPurple
-hi! link haskellAssocType GruvboxAqua
+hi! link haskellLet CakeRed
+hi! link haskellDefault CakeRed
+hi! link haskellWhere CakeRed
+hi! link haskellBottom CakeRedBold
+hi! link haskellImportKeywords CakePurpleBold
+hi! link haskellDeclKeyword CakeOrange
+hi! link haskellDecl CakeOrange
+hi! link haskellDeriving CakePurple
+hi! link haskellAssocType CakeAqua
 
-hi! link haskellNumber GruvboxAqua
-hi! link haskellPragma GruvboxRedBold
+hi! link haskellNumber CakeAqua
+hi! link haskellPragma CakeRedBold
 
-hi! link haskellTH GruvboxAquaBold
-hi! link haskellForeignKeywords GruvboxGreen
-hi! link haskellKeyword GruvboxRed
-hi! link haskellFloat GruvboxAqua
-hi! link haskellInfix GruvboxPurple
-hi! link haskellQuote GruvboxGreenBold
-hi! link haskellShebang GruvboxYellowBold
-hi! link haskellLiquid GruvboxPurpleBold
-hi! link haskellQuasiQuoted GruvboxBlueBold
-hi! link haskellRecursiveDo GruvboxPurple
-hi! link haskellQuotedType GruvboxRed
-hi! link haskellPreProc GruvboxFg4
-hi! link haskellTypeRoles GruvboxRedBold
-hi! link haskellTypeForall GruvboxRed
-hi! link haskellPatternKeyword GruvboxBlue
+hi! link haskellTH CakeAquaBold
+hi! link haskellForeignKeywords CakeGreen
+hi! link haskellKeyword CakeRed
+hi! link haskellFloat CakeAqua
+hi! link haskellInfix CakePurple
+hi! link haskellQuote CakeGreenBold
+hi! link haskellShebang CakeYellowBold
+hi! link haskellLiquid CakePurpleBold
+hi! link haskellQuasiQuoted CakeBlueBold
+hi! link haskellRecursiveDo CakePurple
+hi! link haskellQuotedType CakeRed
+hi! link haskellPreProc CakeFg4
+hi! link haskellTypeRoles CakeRedBold
+hi! link haskellTypeForall CakeRed
+hi! link haskellPatternKeyword CakeBlue
 
 " }}}
 " Json: {{{
 
-hi! link jsonKeyword GruvboxGreen
-hi! link jsonQuote GruvboxGreen
-hi! link jsonBraces GruvboxFg1
-hi! link jsonString GruvboxFg1
+hi! link jsonKeyword CakeGreen
+hi! link jsonQuote CakeGreen
+hi! link jsonBraces CakeFg1
+hi! link jsonString CakeFg1
 
 " }}}
 " Mail: {{{
@@ -1643,36 +1643,36 @@ hi! link mailSignature Comment
 " }}}
 " C#: {{{
 
-hi! link csBraces GruvboxFg1
-hi! link csEndColon GruvboxFg1
-hi! link csLogicSymbols GruvboxFg1
-hi! link csParens GruvboxFg3
-hi! link csOpSymbols GruvboxFg3
-hi! link csInterpolationDelimiter GruvboxFg3
-hi! link csInterpolationAlignDel GruvboxAquaBold
-hi! link csInterpolationFormat GruvboxAqua
-hi! link csInterpolationFormatDel GruvboxAquaBold
+hi! link csBraces CakeFg1
+hi! link csEndColon CakeFg1
+hi! link csLogicSymbols CakeFg1
+hi! link csParens CakeFg3
+hi! link csOpSymbols CakeFg3
+hi! link csInterpolationDelimiter CakeFg3
+hi! link csInterpolationAlignDel CakeAquaBold
+hi! link csInterpolationFormat CakeAqua
+hi! link csInterpolationFormatDel CakeAquaBold
 
 " }}}
 " Rust: {{{
 
-hi! link rustSigil GruvboxOrange
-hi! link rustEscape GruvboxAqua
-hi! link rustStringContinuation GruvboxAqua
-hi! link rustEnum GruvboxAqua
-hi! link rustStructure GruvboxAqua
-hi! link rustModPathSep GruvboxFg2
+hi! link rustSigil CakeOrange
+hi! link rustEscape CakeAqua
+hi! link rustStringContinuation CakeAqua
+hi! link rustEnum CakeAqua
+hi! link rustStructure CakeAqua
+hi! link rustModPathSep CakeFg2
 hi! link rustCommentLineDoc Comment
-hi! link rustDefault GruvboxAqua
+hi! link rustDefault CakeAqua
 
 " }}}
 " Ocaml: {{{
 
-hi! link ocamlOperator GruvboxFg1
-hi! link ocamlKeyChar GruvboxOrange
-hi! link ocamlArrow GruvboxOrange
-hi! link ocamlInfixOpKeyword GruvboxRed
-hi! link ocamlConstructor GruvboxOrange
+hi! link ocamlOperator CakeFg1
+hi! link ocamlKeyChar CakeOrange
+hi! link ocamlArrow CakeOrange
+hi! link ocamlInfixOpKeyword CakeRed
+hi! link ocamlConstructor CakeOrange
 
 " }}}
 
@@ -1680,11 +1680,11 @@ hi! link ocamlConstructor GruvboxOrange
 " Functions -------------------------------------------------------------------
 " Search Highlighting Cursor {{{
 
-function! GruvboxHlsShowCursor()
+function! CakeHlsShowCursor()
   call s:HL('Cursor', s:bg0, s:hls_cursor)
 endfunction
 
-function! GruvboxHlsHideCursor()
+function! CakeHlsHideCursor()
   call s:HL('Cursor', s:none, s:none, s:inverse)
 endfunction
 

@@ -1,37 +1,37 @@
 " -----------------------------------------------------------------------------
-" File: gruvbox.vim
+" File: cake.vim
 " Description: Retro groove color scheme for Vim
 " Author: morhetz <morhetz@gmail.com>
-" Source: https://github.com/gruvbox-community/gruvbox
+" Source: https://github.com/cake-community/cake
 " -----------------------------------------------------------------------------
 
-function! gruvbox#invert_signs_toggle()
-  if g:gruvbox_invert_signs == 0
-    let g:gruvbox_invert_signs=1
+function! cake#invert_signs_toggle()
+  if g:cake_invert_signs == 0
+    let g:cake_invert_signs=1
   else
-    let g:gruvbox_invert_signs=0
+    let g:cake_invert_signs=0
   endif
 
-  colorscheme gruvbox
+  colorscheme cake
 endfunction
 
 " Search Highlighting {{{
 
-function! gruvbox#hls_show()
+function! cake#hls_show()
   set hlsearch
-  call GruvboxHlsShowCursor()
+  call CakeHlsShowCursor()
 endfunction
 
-function! gruvbox#hls_hide()
+function! cake#hls_hide()
   set nohlsearch
-  call GruvboxHlsHideCursor()
+  call CakeHlsHideCursor()
 endfunction
 
-function! gruvbox#hls_toggle()
+function! cake#hls_toggle()
   if &hlsearch
-    call gruvbox#hls_hide()
+    call cake#hls_hide()
   else
-    call gruvbox#hls_show()
+    call cake#hls_show()
   endif
 endfunction
 
