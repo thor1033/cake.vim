@@ -76,7 +76,7 @@ if !exists('g:cake_contrast_light')
   let g:cake_contrast_light='medium'
 endif
 
-let s:is_dark=(&background == 'dark')
+let s:is_dark=(&background == 'light')
 
 " }}}
 " Palette Utility Functions: {{{
