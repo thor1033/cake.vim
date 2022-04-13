@@ -162,13 +162,13 @@ call s:Color('neutral_purple', ['#9480b3', 132])     " 177-98-134
 call s:Color('neutral_pink',   ['#df7382', 72])      " 104-157-106
 call s:Color('neutral_orange', ['#f4a535', 166])     " 214-93-14
 
-call s:Color('faded_red',      ['#9d0006', 88])      " 157-0-6
-call s:Color('faded_green',    ['#79740e', 100])     " 121-116-14
-call s:Color('faded_yellow',   ['#b57614', 136])     " 181-118-20
-call s:Color('faded_blue',     ['#076678', 24])      " 7-102-120
-call s:Color('faded_purple',   ['#8f3f71', 96])      " 143-63-113
-call s:Color('faded_pink',     ['#427b58', 65])      " 66-123-88
-call s:Color('faded_orange',   ['#af3a03', 130])     " 175-58-3
+call s:Color('faded_red',      ['#d01818', 88])      " 157-0-6
+call s:Color('faded_green',    ['#63c041', 100])     " 121-116-14
+call s:Color('faded_yellow',   ['#ecd822', 136])     " 181-118-20
+call s:Color('faded_blue',     ['#49abab', 24])      " 7-102-120
+call s:Color('faded_purple',   ['#745c99', 96])      " 143-63-113
+call s:Color('faded_pink',     ['#d23b4f', 65])      " 66-123-88
+call s:Color('faded_orange',   ['#e1880c', 130])     " 175-58-3
 
 call s:Color('none', ['NONE','NONE'])
 call s:Color('NONE', ['NONE','NONE'])
