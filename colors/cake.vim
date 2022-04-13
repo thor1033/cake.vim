@@ -131,8 +131,8 @@ call s:Color('dark0_soft',  ['#555351', 236])     " 50-48-47
 call s:Color('dark1',       ['#555351', 237])     " 60-56-54
 call s:Color('dark2',       ['#555351', 239])     " 80-73-69
 call s:Color('dark3',       ['#716F6D', 241])     " 102-92-84
-call s:Color('dark4',       ['#8c8a88', 243])     " 124-111-100
-call s:Color('dark4_256',   ['#8c8a88', 243])     " 124-111-100
+call s:Color('dark4',       ['#faf8f6', 243])     " 124-111-100
+call s:Color('dark4_256',   ['#faf8f6', 243])     " 124-111-100
 
 call s:Color('gray_245',    ['#ccccc4', 245])     " 146-131-116
 call s:Color('gray_244',    ['#ccccc4', 244])     " 146-131-116
