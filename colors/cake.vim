@@ -104,7 +104,7 @@ function! s:Color(name, default, ...)
       return 1
     else
       " invalid value
-      echo a:name 'is invalid, usage: let g:cake_colors.color = (["#ffffff", 255]|"#ffffff"|255)'
+      echo a:name 'is invalid, usage: let g:cake_colors.color = (["#faf8f6", 255]|"#faf8f6"|255)'
       return 0
     endif
 
@@ -125,26 +125,26 @@ let s:gb = copy(g:cake_colors)
 let g:current_cake_colors = s:gb
 
 " set palette default colors
-call s:Color('dark0_hard',  ['#1d2021', 234])     " 29-32-33
-call s:Color('dark0',       ['#282828', 235])     " 40-40-40
-call s:Color('dark0_soft',  ['#32302f', 236])     " 50-48-47
-call s:Color('dark1',       ['#3c3836', 237])     " 60-56-54
-call s:Color('dark2',       ['#504945', 239])     " 80-73-69
-call s:Color('dark3',       ['#665c54', 241])     " 102-92-84
-call s:Color('dark4',       ['#7c6f64', 243])     " 124-111-100
-call s:Color('dark4_256',   ['#7c6f64', 243])     " 124-111-100
+call s:Color('dark0_hard',  ['#1d1c1a', 234])     " 29-32-33
+call s:Color('dark0',       ['#393836', 235])     " 40-40-40
+call s:Color('dark0_soft',  ['#555351', 236])     " 50-48-47
+call s:Color('dark1',       ['#555351', 237])     " 60-56-54
+call s:Color('dark2',       ['#555351', 239])     " 80-73-69
+call s:Color('dark3',       ['#716F6D', 241])     " 102-92-84
+call s:Color('dark4',       ['#8c8a88', 243])     " 124-111-100
+call s:Color('dark4_256',   ['#8c8a88', 243])     " 124-111-100
 
-call s:Color('gray_245',    ['#928374', 245])     " 146-131-116
-call s:Color('gray_244',    ['#928374', 244])     " 146-131-116
+call s:Color('gray_245',    ['#8c8a88', 245])     " 146-131-116
+call s:Color('gray_244',    ['#8c8a88', 244])     " 146-131-116
 
-call s:Color('light0_hard', ['#f9f5d7', 230])     " 249-245-215
-call s:Color('light0',      ['#fbf1c7', 229])     " 253-244-193
-call s:Color('light0_soft', ['#f2e5bc', 228])     " 242-229-188
-call s:Color('light1',      ['#ebdbb2', 223])     " 235-219-178
-call s:Color('light2',      ['#d5c4a1', 250])     " 213-196-161
-call s:Color('light3',      ['#bdae93', 248])     " 189-174-147
-call s:Color('light4',      ['#a89984', 246])     " 168-153-132
-call s:Color('light4_256',  ['#a89984', 246])     " 168-153-132
+call s:Color('light0_hard', ['#faf8f6', 230])     " 249-245-215
+call s:Color('light0',      ['#faf8f6', 229])     " 253-244-193
+call s:Color('light0_soft', ['#dbdbdc', 228])     " 242-229-188
+call s:Color('light1',      ['#ccccc4', 223])     " 235-219-178
+call s:Color('light2',      ['#c3c1bf', 250])     " 213-196-161
+call s:Color('light3',      ['#c3c1bf', 248])     " 189-174-147
+call s:Color('light4',      ['#a8a6a4', 246])     " 168-153-132
+call s:Color('light4_256',  ['#a8a6a4', 246])     " 168-153-132
 
 call s:Color('bright_red',     ['#f08080', 167])     " 251-73-52
 call s:Color('bright_green',   ['#bee5b0', 142])     " 184-187-38
