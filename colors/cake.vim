@@ -146,28 +146,28 @@ call s:Color('light3',      ['#bdae93', 248])     " 189-174-147
 call s:Color('light4',      ['#a89984', 246])     " 168-153-132
 call s:Color('light4_256',  ['#a89984', 246])     " 168-153-132
 
-call s:Color('bright_red',     ['#fb4934', 167])     " 251-73-52
-call s:Color('bright_green',   ['#b8bb26', 142])     " 184-187-38
-call s:Color('bright_yellow',  ['#fabd2f', 214])     " 250-189-47
-call s:Color('bright_blue',    ['#83a598', 109])     " 131-165-152
-call s:Color('bright_purple',  ['#d3869b', 175])     " 211-134-155
-call s:Color('bright_aqua',    ['#8ec07c', 108])     " 142-192-124
-call s:Color('bright_orange',  ['#fe8019', 208])     " 254-128-25
+call s:Color('bright_red',     ['#f08080', 167])     " 251-73-52
+call s:Color('bright_green',   ['#bee5b0', 142])     " 184-187-38
+call s:Color('bright_yellow',  ['#f8f1ae', 214])     " 250-189-47
+call s:Color('bright_blue',    ['#a4d8d8', 109])     " 131-165-152
+call s:Color('bright_purple',  ['#bcafcf', 175])     " 211-134-155
+call s:Color('bright_pink',    ['#efb9c0', 108])     " 142-192-124
+call s:Color('bright_orange',  ['#f8c57c', 208])     " 254-128-25
 
-call s:Color('neutral_red',    ['#cc241d', 124])     " 204-36-29
-call s:Color('neutral_green',  ['#98971a', 106])     " 152-151-26
-call s:Color('neutral_yellow', ['#d79921', 172])     " 215-153-33
-call s:Color('neutral_blue',   ['#458588', 66])      " 69-133-136
-call s:Color('neutral_purple', ['#b16286', 132])     " 177-98-134
-call s:Color('neutral_aqua',   ['#689d6a', 72])      " 104-157-106
-call s:Color('neutral_orange', ['#d65d0e', 166])     " 214-93-14
+call s:Color('neutral_red',    ['#e83d3d', 124])     " 204-36-29
+call s:Color('neutral_green',  ['#8bd072', 106])     " 152-151-26
+call s:Color('neutral_yellow', ['#f1e361', 172])     " 215-153-33
+call s:Color('neutral_blue',   ['#70c2c2', 66])      " 69-133-136
+call s:Color('neutral_purple', ['#9480b3', 132])     " 177-98-134
+call s:Color('neutral_pink',   ['#df7382', 72])      " 104-157-106
+call s:Color('neutral_orange', ['#f4a535', 166])     " 214-93-14
 
 call s:Color('faded_red',      ['#9d0006', 88])      " 157-0-6
 call s:Color('faded_green',    ['#79740e', 100])     " 121-116-14
 call s:Color('faded_yellow',   ['#b57614', 136])     " 181-118-20
 call s:Color('faded_blue',     ['#076678', 24])      " 7-102-120
 call s:Color('faded_purple',   ['#8f3f71', 96])      " 143-63-113
-call s:Color('faded_aqua',     ['#427b58', 65])      " 66-123-88
+call s:Color('faded_pink',     ['#427b58', 65])      " 66-123-88
 call s:Color('faded_orange',   ['#af3a03', 130])     " 175-58-3
 
 call s:Color('none', ['NONE','NONE'])
@@ -238,7 +238,7 @@ if s:is_dark
   let s:yellow = s:gb.bright_yellow
   let s:blue   = s:gb.bright_blue
   let s:purple = s:gb.bright_purple
-  let s:aqua   = s:gb.bright_aqua
+  let s:pink   = s:gb.bright_pink
   let s:orange = s:gb.bright_orange
 else
   let s:bg0  = s:gb.light0
@@ -268,7 +268,7 @@ else
   let s:yellow = s:gb.faded_yellow
   let s:blue   = s:gb.faded_blue
   let s:purple = s:gb.faded_purple
-  let s:aqua   = s:gb.faded_aqua
+  let s:pink   = s:gb.faded_pink
   let s:orange = s:gb.faded_orange
 endif
 
@@ -282,7 +282,7 @@ if g:gruvbox_termcolors == 16
   let s:yellow[1] = 11
   let s:blue[1]   = 12
   let s:purple[1] = 13
-  let s:aqua[1]   = 14
+  let s:pink[1]   = 14
   let s:fg1[1]    = 15
 endif
 
@@ -308,7 +308,7 @@ call s:Color('green',  s:green)
 call s:Color('yellow', s:yellow)
 call s:Color('blue',   s:blue)
 call s:Color('purple', s:purple)
-call s:Color('aqua',   s:aqua)
+call s:Color('pink',   s:pink)
 call s:Color('orange', s:orange)
 
 " }}}
@@ -333,8 +333,8 @@ if has('nvim')
   let g:terminal_color_5 = s:gb.neutral_purple[0]
   let g:terminal_color_13 = s:gb.purple[0]
 
-  let g:terminal_color_6 = s:gb.neutral_aqua[0]
-  let g:terminal_color_14 = s:gb.aqua[0]
+  let g:terminal_color_6 = s:gb.neutral_pink[0]
+  let g:terminal_color_14 = s:gb.pink[0]
 
   let g:terminal_color_7 = s:gb.fg4[0]
   let g:terminal_color_15 = s:gb.fg1[0]
@@ -364,8 +364,8 @@ if exists('*term_setansicolors')
   let g:terminal_ansi_colors[5] = s:gb.neutral_purple[0]
   let g:terminal_ansi_colors[13] = s:gb.purple[0]
 
-  let g:terminal_ansi_colors[6] = s:gb.neutral_aqua[0]
-  let g:terminal_ansi_colors[14] = s:gb.aqua[0]
+  let g:terminal_ansi_colors[6] = s:gb.neutral_pink[0]
+  let g:terminal_ansi_colors[14] = s:gb.pink[0]
 
   let g:terminal_ansi_colors[7] = s:gb.fg4[0]
   let g:terminal_ansi_colors[15] = s:gb.fg1[0]
@@ -526,8 +526,8 @@ call s:HL('GruvboxBlue', s:gb.blue)
 call s:HL('GruvboxBlueBold', s:gb.blue, s:none, s:bold)
 call s:HL('GruvboxPurple', s:gb.purple)
 call s:HL('GruvboxPurpleBold', s:gb.purple, s:none, s:bold)
-call s:HL('GruvboxAqua', s:gb.aqua)
-call s:HL('GruvboxAquaBold', s:gb.aqua, s:none, s:bold)
+call s:HL('GruvboxAqua', s:gb.pink)
+call s:HL('GruvboxAquaBold', s:gb.pink, s:none, s:bold)
 call s:HL('GruvboxOrange', s:gb.orange)
 call s:HL('GruvboxOrangeBold', s:gb.orange, s:none, s:bold)
 
@@ -536,7 +536,7 @@ call s:HL('GruvboxGreenSign', s:gb.green, s:sign_column, s:invert_signs)
 call s:HL('GruvboxYellowSign', s:gb.yellow, s:sign_column, s:invert_signs)
 call s:HL('GruvboxBlueSign', s:gb.blue, s:sign_column, s:invert_signs)
 call s:HL('GruvboxPurpleSign', s:gb.purple, s:sign_column, s:invert_signs)
-call s:HL('GruvboxAquaSign', s:gb.aqua, s:sign_column, s:invert_signs)
+call s:HL('GruvboxAquaSign', s:gb.pink, s:sign_column, s:invert_signs)
 call s:HL('GruvboxOrangeSign', s:gb.orange, s:sign_column, s:invert_signs)
 
 call s:HL('GruvboxRedUnderline', s:none, s:none, s:undercurl, s:gb.red)
@@ -544,7 +544,7 @@ call s:HL('GruvboxGreenUnderline', s:none, s:none, s:undercurl, s:gb.green)
 call s:HL('GruvboxYellowUnderline', s:none, s:none, s:undercurl, s:gb.yellow)
 call s:HL('GruvboxBlueUnderline', s:none, s:none, s:undercurl, s:gb.blue)
 call s:HL('GruvboxPurpleUnderline', s:none, s:none, s:undercurl, s:gb.purple)
-call s:HL('GruvboxAquaUnderline', s:none, s:none, s:undercurl, s:gb.aqua)
+call s:HL('GruvboxAquaUnderline', s:none, s:none, s:undercurl, s:gb.pink)
 call s:HL('GruvboxOrangeUnderline', s:none, s:none, s:undercurl, s:gb.orange)
 
 " }}}
@@ -760,7 +760,7 @@ call s:HL('DiffAdd',    s:gb.green, s:gb.bg0, s:inverse)
 "call s:HL('DiffText',   s:gb.bg0, s:gb.yellow)
 
 " Alternative setting
-call s:HL('DiffChange', s:gb.aqua, s:gb.bg0, s:inverse)
+call s:HL('DiffChange', s:gb.pink, s:gb.bg0, s:inverse)
 call s:HL('DiffText',   s:gb.yellow, s:gb.bg0, s:inverse)
 
 " }}}
@@ -877,12 +877,12 @@ endif
 if !exists('g:rbpt_colorpairs')
   let g:rbpt_colorpairs =
     \ [
-      \ ['blue', '#458588'], ['magenta', '#b16286'],
-      \ ['red',  '#cc241d'], ['166',     '#d65d0e']
+      \ ['blue', '#70c2c2'], ['magenta', '#9480b3'],
+      \ ['red',  '#e83d3d'], ['166',     '#f4a535']
     \ ]
 endif
 
-let g:rainbow_guifgs = [ '#d65d0e', '#cc241d', '#b16286', '#458588' ]
+let g:rainbow_guifgs = [ '#f4a535', '#e83d3d', '#9480b3', '#70c2c2' ]
 let g:rainbow_ctermfgs = [ '166', 'red', 'magenta', 'blue' ]
 
 if !exists('g:rainbow_conf')
@@ -1006,9 +1006,9 @@ hi! link StartifyFooter GruvboxBg2
 
 let g:vimshell_escape_colors = [
   \ s:gb.bg4[0], s:gb.red[0], s:gb.green[0], s:gb.yellow[0],
-  \ s:gb.blue[0], s:gb.purple[0], s:gb.aqua[0], s:gb.fg4[0],
+  \ s:gb.blue[0], s:gb.purple[0], s:gb.pink[0], s:gb.fg4[0],
   \ s:gb.bg0[0], s:gb.red[0], s:gb.green[0], s:gb.orange[0],
-  \ s:gb.blue[0], s:gb.purple[0], s:gb.aqua[0], s:gb.fg0[0]
+  \ s:gb.blue[0], s:gb.purple[0], s:gb.pink[0], s:gb.fg0[0]
   \ ]
 
 " }}}
