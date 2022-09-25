@@ -1,6 +1,6 @@
 # Cake Theme for VIM!
 
-A gruvbox inspired vim theme with pastel colors!
+A gruvbox inspired vim theme!
 
 ## Palette:
 
@@ -9,3 +9,11 @@ A gruvbox inspired vim theme with pastel colors!
 ## Example:
 
 ![Example](vim.png)
+
+## Installation:
+Inside your vim config:
+```
+Plug 'thor1033/cake.vim'
+
+colorscheme cake
+```
