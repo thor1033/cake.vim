@@ -1,6 +1,6 @@
 # Cake Theme for VIM!
 
-A gruvbox inspired vim theme!
+A gruvbox-forked vim theme!
 
 ## Palette:
 
